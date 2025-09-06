@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import nebulaLogo from './nebula-logo.svg';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img 
+        src={nebulaLogo} 
+        alt="Nebula Logo" 
+        style={{ width: '120px', marginTop: '20px' }} 
+      />
+      <h1>Nebula App</h1>
+      <p>Добро пожаловать в спортивное приложение будущего 🚀</p>
     </div>
   );
 }
+
 
 export default App;
