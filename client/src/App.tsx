@@ -1,20 +1,41 @@
-import React from 'react';
-import './App.css';
-import nebulaLogo from './nebula-logo.svg';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <img 
-        src={nebulaLogo} 
-        alt="Nebula Logo" 
-        style={{ width: '120px', marginTop: '20px' }} 
-      />
-      <h1>Nebula App</h1>
-      <p>Добро пожаловать в спортивное приложение будущего 🚀</p>
-    </div>
-  );
-}
+    <Router>
+      <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white">
+        {/* Навигация */}
+        <nav className="bg-black bg-opacity-40 backdrop-blur-md shadow-lg p-4 flex gap-6 justify-center sticky top-0 z-50">
+          <Link to="/" className="hover:text-purple-400 font-medium transition-colors">
+            Home
+          </Link>
+          <Link to="/about" className="hover:text-purple-400 font-medium transition-colors">
+            About
+          </Link>
+          <Link to="/contact" className="hover:text-purple-400 font-medium transition-colors">
+            Contact
+          </Link>
+        </nav>
 
+        {/* Контент */}
+        <main className="flex-grow p-6">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+
+        {/* Футер */}
+        <Footer />
+      </div>
+    </Router>
+  );
+};
 
 export default App;
