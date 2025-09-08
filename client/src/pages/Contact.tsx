@@ -1,77 +1,107 @@
-import React, { useRef } from "react";
-import emailjs from "@emailjs/browser";
+import React from "react";
+import { motion } from "framer-motion";
+import { FaTelegramPlane, FaVk, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Contact: React.FC = () => {
-  const form = useRef<HTMLFormElement | null>(null);
-
-  const sendEmail = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!form.current) return;
-
-    emailjs
-      .sendForm(
-        "service_nvk37er", // твой Service ID
-        "template_p13aggx", // твой Template ID
-        form.current,
-        "5L8QDD2BqEECRZRgk" // твой Public Key
-      )
-      .then(
-        () => {
-          alert("✅ Сообщение успешно отправлено!");
-          form.current?.reset();
-        },
-        (error: any) => {
-          console.error("Ошибка:", error.text);
-          alert("❌ Ошибка при отправке. Попробуй снова.");
-        }
-      );
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white flex items-center justify-center p-6">
-      <div className="bg-gray-800 rounded-2xl shadow-lg p-8 max-w-lg w-full">
-        <h2 className="text-3xl font-bold mb-6 text-center">Свяжись с нами ✉️</h2>
-        <form ref={form} onSubmit={sendEmail} className="space-y-4">
-          <input
-            type="text"
-            name="user_name"
-            placeholder="Ваше имя"
-            required
-            className="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
-          />
-          <input
-            type="email"
-            name="user_email"
-            placeholder="Ваш Email"
-            required
-            className="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
-          />
-          <textarea
-            name="message"
-            placeholder="Ваше сообщение..."
-            required
-            className="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
-            rows={5}
-          />
-          <button
-            type="submit"
-            className="w-full bg-purple-600 hover:bg-purple-700 transition-colors py-3 rounded-lg font-semibold"
-          >
-            Отправить 🚀
-          </button>
-        </form>
-        <p className="text-center text-gray-400 mt-6">
-          Или напиши нам напрямую:{" "}
+    <section
+      id="contact"
+      className="min-h-screen py-24 bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white scroll-mt-28"
+    >
+      <div className="container mx-auto px-6 text-center">
+        {/* Заголовок */}
+        <motion.h2
+          className="text-4xl md:text-5xl font-extrabold mb-6"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.6 }}
+        >
+          Свяжись с нами ✉️
+        </motion.h2>
+
+        {/* Подзаголовок */}
+        <p className="mb-8 text-lg opacity-90">
+          У тебя есть вопросы или идеи? Мы всегда открыты для общения!
+          Напиши нам на{" "}
           <a
             href="mailto:tfotlabs@gmail.com"
-            className="text-purple-400 hover:underline"
+            className="text-purple-300 underline hover:text-purple-400 transition"
           >
             tfotlabs@gmail.com
           </a>
         </p>
+
+        {/* Форма */}
+        <div className="max-w-2xl mx-auto bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-white/10">
+          <form className="flex flex-col gap-4 text-left">
+            <input
+              type="text"
+              placeholder="Ваше имя"
+              className="p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400"
+            />
+            <input
+              type="email"
+              placeholder="Ваша почта"
+              className="p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400"
+            />
+            <textarea
+              rows={4}
+              placeholder="Ваше сообщение"
+              className="p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400"
+            />
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              type="submit"
+              className="mt-4 py-3 px-6 bg-purple-500 hover:bg-purple-600 rounded-lg font-semibold shadow-lg transition"
+            >
+              Отправить
+            </motion.button>
+          </form>
+        </div>
+
+        {/* Соцсети */}
+        <div className="flex justify-center gap-6 text-3xl mt-10">
+          <a
+            aria-label="Telegram"
+            href="https://t.me/"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-purple-300 transition"
+          >
+            <FaTelegramPlane />
+          </a>
+          <a
+            aria-label="VK"
+            href="https://vk.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-purple-300 transition"
+          >
+            <FaVk />
+          </a>
+          <a
+            aria-label="Instagram"
+            href="https://instagram.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-purple-300 transition"
+          >
+            <FaInstagram />
+          </a>
+          <a
+            aria-label="X"
+            href="https://twitter.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-purple-300 transition"
+          >
+            <FaTwitter />
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

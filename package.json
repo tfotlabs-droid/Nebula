@@ -1,5 +1,16 @@
 {
+  "name": "nebula-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run start --prefix backend\" \"npm start --prefix client\""
+  },
+  "devDependencies": {
+    "concurrently": "9.0.0"
+  },
   "dependencies": {
-    "react-router-dom": "^7.8.2"
+    "mongoose": "^8.18.1",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1"
   }
 }
