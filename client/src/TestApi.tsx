@@ -6,8 +6,8 @@ const TestApi: React.FC = () => {
   useEffect(() => {
     fetch("/api/health")
       .then((res) => res.json())
-      .then((data) => setMsg(`✅ API ответило: ${JSON.stringify(data)}`))
-      .catch((err) => setMsg(`❌ Ошибка: ${err.message}`));
+      .then((data) => setMsg("✅ API работает"))
+      .catch((err) => setMsg("❌ Ошибка подключения"));
   }, []);
 
   return (

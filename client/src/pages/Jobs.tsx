@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from "framer-motion";
 
 const Jobs: React.FC = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
   const [formData, setFormData] = useState({
@@ -13,38 +15,11 @@ const Jobs: React.FC = () => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const vacancies = [
-    {
-      title: "Frontend-разработчик (React/TypeScript)",
-      description:
-        "Работаем над интерфейсом Nebula: анимации, адаптивность, интеграция с API.",
-      requirements: [
-        "Опыт работы с React и TypeScript",
-        "Знание TailwindCSS или аналогов",
-        "Опыт работы с REST API",
-      ],
-    },
-    {
-      title: "Backend-разработчик (Node.js)",
-      description:
-        "Проектирование API для трансляций, подписок и аналитики пользователей.",
-      requirements: [
-        "Опыт с Node.js, Express",
-        "Знание баз данных (PostgreSQL, MongoDB)",
-        "Опыт работы с WebSockets",
-      ],
-    },
-    {
-      title: "ML/AI инженер",
-      description:
-        "Нейросеть для рекомендаций матчей, анализа игр и персонализации.",
-      requirements: [
-        "Опыт работы с Python (PyTorch/TensorFlow)",
-        "Навыки в обработке данных",
-        "Понимание спортивной аналитики будет плюсом",
-      ],
-    },
-  ];
+  const vacancies = t('jobs.vacancies', { returnObjects: true }) as Array<{
+    title: string;
+    description: string;
+    requirements: string[];
+  }>;
 
   const openModal = (jobTitle: string) => {
     setSelectedJob(jobTitle);
@@ -64,14 +39,14 @@ const Jobs: React.FC = () => {
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) newErrors.name = "Введите имя";
+    if (!formData.name.trim()) newErrors.name = t('jobs.errors.nameRequired');
     if (!formData.email.trim())
-      newErrors.email = "Введите email";
+      newErrors.email = t('jobs.errors.emailRequired');
     else if (!/\S+@\S+\.\S+/.test(formData.email))
-      newErrors.email = "Некорректный email";
-    if (!formData.phone.trim()) newErrors.phone = "Введите номер телефона";
-    if (!formData.telegram.trim()) newErrors.telegram = "Введите Telegram";
-    if (!formData.resume.trim()) newErrors.resume = "Укажите ссылку на резюме";
+      newErrors.email = t('jobs.errors.emailInvalid');
+    if (!formData.phone.trim()) newErrors.phone = t('jobs.errors.phoneRequired');
+    if (!formData.telegram.trim()) newErrors.telegram = t('jobs.errors.telegramRequired');
+    if (!formData.resume.trim()) newErrors.resume = t('jobs.errors.resumeRequired');
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -80,7 +55,7 @@ const Jobs: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      alert("Заявка отправлена! 🚀");
+      alert(t('jobs.applicationSent'));
       closeModal();
     }
   };
@@ -97,7 +72,7 @@ const Jobs: React.FC = () => {
         viewport={{ once: false }}
         transition={{ duration: 0.7 }}
       >
-        Вакансии <span className="text-yellow-300">Nebula</span>
+        {t('jobs.sectionTitle')} <span className="text-yellow-300">Nebula</span>
       </motion.h1>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
@@ -114,7 +89,7 @@ const Jobs: React.FC = () => {
               {job.title}
             </h2>
             <p className="mb-4 opacity-90">{job.description}</p>
-            <h3 className="font-semibold mb-2 text-yellow-300">Требования:</h3>
+            <h3 className="font-semibold mb-2 text-yellow-300">{t('jobs.requirements')}</h3>
             <ul className="list-disc list-inside space-y-1 mb-6 text-sm opacity-90">
               {job.requirements.map((req, i) => (
                 <li key={i}>{req}</li>
@@ -124,7 +99,7 @@ const Jobs: React.FC = () => {
               onClick={() => openModal(job.title)}
               className="w-full py-2 px-4 bg-yellow-300 text-gray-900 font-semibold rounded-xl hover:brightness-95 transition"
             >
-              Откликнуться
+              {t('jobs.apply')}
             </button>
           </motion.div>
         ))}
@@ -154,7 +129,7 @@ const Jobs: React.FC = () => {
               </button>
 
               <h2 className="text-2xl font-bold mb-4">
-                Отклик на вакансию:{" "}
+                {t('jobs.modalTitle')}{" "}
                 <span className="text-purple-600">{selectedJob}</span>
               </h2>
 
@@ -163,7 +138,7 @@ const Jobs: React.FC = () => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Имя"
+                    placeholder={t('jobs.form.name')}
                     value={formData.name}
                     onChange={handleChange}
                     className={`w-full p-3 border rounded-lg ${
@@ -179,7 +154,7 @@ const Jobs: React.FC = () => {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email"
+                    placeholder={t('jobs.form.email')}
                     value={formData.email}
                     onChange={handleChange}
                     className={`w-full p-3 border rounded-lg ${
@@ -195,7 +170,7 @@ const Jobs: React.FC = () => {
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="Телефон"
+                    placeholder={t('jobs.form.phone')}
                     value={formData.phone}
                     onChange={handleChange}
                     className={`w-full p-3 border rounded-lg ${
@@ -211,7 +186,7 @@ const Jobs: React.FC = () => {
                   <input
                     type="text"
                     name="telegram"
-                    placeholder="@Telegram"
+                    placeholder={t('jobs.form.telegram')}
                     value={formData.telegram}
                     onChange={handleChange}
                     className={`w-full p-3 border rounded-lg ${
@@ -229,7 +204,7 @@ const Jobs: React.FC = () => {
                   <input
                     type="text"
                     name="resume"
-                    placeholder="Ссылка на резюме"
+                    placeholder={t('jobs.form.resume')}
                     value={formData.resume}
                     onChange={handleChange}
                     className={`w-full p-3 border rounded-lg ${errors.resume ? "border-red-500" : ""
@@ -244,7 +219,7 @@ const Jobs: React.FC = () => {
                   type="submit"
                   className="w-full py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition"
                 >
-                  Отправить
+                  {t('jobs.submit')}
                 </button>
               </form>
             </motion.div>

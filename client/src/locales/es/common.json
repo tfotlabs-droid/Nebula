@@ -1,0 +1,356 @@
+{
+  "login": "Iniciar sesión",
+  "register": "Registrarse",
+  "logout": "Cerrar sesión",
+  "myProfile": "Mi Perfil",
+  "info": "Información",
+  "email": "Correo electrónico",
+  "password": "Contraseña",
+  "subscription": "Suscripción",
+  "none": "Ninguno",
+  "tariffs": "Tarifas",
+  "orLoginWith": "O iniciar sesión con",
+  "hasAccount": "¿Ya tiene cuenta?",
+  "orRegisterWith": "O registrarse con",
+  "noAccount": "¿No tiene cuenta?",
+  "registering": "Registrándose...",
+  "loggingIn": "Iniciando sesión...",
+  "registrationFailed": "Registro fallido",
+  "networkError": "Error de red",
+  "google": "Google",
+  "apple": "Apple",
+  "yandex": "Yandex",
+  "vk": "VK",
+  "processingAuth": "Procesando autorización...",
+  "notFoundTitle": "404",
+  "notFoundMessage": "¡Ups! Te has perdido en el universo Nebula 🚀",
+  "notFoundDescription": "Esta página no existe... tal vez los alienígenas la robaron 👽",
+  "apiLoading": "Cargando...",
+  "apiSuccess": "✅ API respondió: ok={{ok}}, ts={{ts}}",
+  "apiError": "❌ Error de solicitud API: {{error}}",
+  "serverError": "Error de respuesta del servidor",
+  "returnHome": "Volver al inicio 🏠",
+  "home": "Inicio",
+  "download": "Descargar",
+  "contact": {
+    "nav": "Contacto",
+    "title": "Contáctanos",
+    "subtitle": "¿Tienes preguntas o ideas? ¡Siempre estamos abiertos a la comunicación! Escríbenos a {{email}}",
+    "namePlaceholder": "Tu nombre",
+    "emailPlaceholder": "Tu email",
+    "messagePlaceholder": "Tu mensaje",
+    "submit": "Enviar"
+  },
+  "welcome": "Bienvenido",
+  "welcome_to_nebula": "Bienvenido a Nebula",
+  "streams": "Transmisiones",
+  "analytics": "Analítica",
+  "community": "Comunidad",
+  "and": "y",
+  "ai_recommendations": "Recomendaciones de IA",
+  "openMenu": "Abrir menú",
+  "closeMenu": "Cerrar menú",
+  "countryRegion": "País / Región",
+  "autoDetectedCountry": "Detectado automáticamente",
+  "changeCountry": "Cambiar país",
+  "paymentMethod": "Método de pago",
+  "currency": "Moneda",
+  "yourPaymentMethod": "Su método de pago",
+  "testMode": "(prueba)",
+  "language": "Idioma",
+  "selectLanguage": "Seleccionar idioma",
+  "registrationComplete": "Registro completado con éxito",
+  "countries": {
+    "RU": "Rusia",
+    "US": "Estados Unidos",
+    "GB": "Reino Unido",
+    "FR": "Francia",
+    "DE": "Alemania",
+    "ES": "España",
+    "CN": "China",
+    "CA": "Canadá",
+    "MX": "México",
+    "other": "Otro"
+  },
+  "currencies": {
+    "RUB": "RUB",
+    "USD": "USD",
+    "GBP": "GBP",
+    "EUR": "EUR",
+    "CNY": "CNY",
+    "CAD": "CAD",
+    "MXN": "MXN"
+  },
+  "paymentSystems": {
+    "robokassa": "Robokassa (prueba)",
+    "stripe": "Stripe (prueba)"
+  },
+  "updateLanguage": "Idioma actualizado",
+  "invalidCountry": "País inválido",
+  "nav": {
+    "home": "Inicio",
+    "pricing": "Precios"
+  },
+  "btn": {
+    "subscribe": "Suscribirse"
+  },
+  "msg": {
+    "payment_method": "Método de pago"
+  },
+  "footer": {
+    "copyright": "® {{year}} Nebula, TFOT Labs. Todos los derechos reservados.",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de servicio",
+    "language_label": "Idioma"
+  },
+  "about": {
+    "title": "Acerca de",
+    "items": [
+      {
+        "title": "📊 Transmisiones & Analítica",
+        "text": "Marcadores en vivo, análisis de IA pre y post-partido, hechos interesantes y voz en off para sordos y ciegos."
+      },
+      {
+        "title": "🤝 Comunidad",
+        "text": "Salas de visualización, chats, mensajes de voz, eventos y reuniones locales de fans."
+      },
+      {
+        "title": "🛎️ Servicios",
+        "text": "Pide comida, taxi y entradas — IA seleccionará opciones óptimas para el partido y el lugar."
+      },
+      {
+        "title": "💡 Personalización",
+        "text": "IA forma recomendaciones de entrenamientos y nutrición basadas en tus objetivos."
+      },
+      {
+        "title": "🎧 Soporte de accesibilidad",
+        "text": "Voz en off de eventos y adaptación de interfaz para sordos y ciegos."
+      },
+      {
+        "title": "🌍 Funciones sociales",
+        "text": "Creación de comunidades, reuniones locales de fans e integración con redes sociales."
+      }
+    ]
+  },
+  "downloadPage": {
+    "title": "Descargar",
+    "platforms": {
+      "ios": "Descargar para iOS",
+      "android": "Descargar para Android",
+      "windows": "Descargar para Windows",
+      "macos": "Descargar para MacOS"
+    },
+    "windows": {
+      "select": "Selecciona la arquitectura para Windows:",
+      "x86": "Windows x86",
+      "x64": "Windows x64"
+    },
+    "macos": {
+      "select": "Selecciona el procesador para MacOS:",
+      "intel": "MacOS Intel",
+      "appleM": "MacOS Apple M"
+    },
+    "alert": {
+      "ios": "¡Comenzó la descarga de la versión iOS!",
+      "android": "¡Comenzó la descarga de la versión Android!",
+      "windows": {
+        "x86": "¡Comenzó la descarga de la versión Windows x86!",
+        "x64": "¡Comenzó la descarga de la versión Windows x64!"
+      },
+      "macos": {
+        "intel": "¡Comenzó la descarga de la versión MacOS Intel!",
+        "appleM": "¡Comenzó la descarga de la versión MacOS Apple M!"
+      }
+    }
+  },
+  "jobs": {
+    "title": "Trabajos",
+    "sectionTitle": "Trabajos",
+    "requirements": "Requisitos:",
+    "apply": "Aplicar",
+    "modalTitle": "Solicitud para posición: ",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "telegram": "@Telegram",
+      "resume": "Enlace al currículum"
+    },
+    "errors": {
+      "nameRequired": "Ingresa el nombre",
+      "emailRequired": "Ingresa el correo electrónico",
+      "emailInvalid": "Correo electrónico inválido",
+      "phoneRequired": "Ingresa el número de teléfono",
+      "telegramRequired": "Ingresa Telegram",
+      "resumeRequired": "Proporciona el enlace al currículum"
+    },
+    "applicationSent": "¡Solicitud enviada! 🚀",
+    "submit": "Enviar",
+    "vacancies": [
+      {
+        "title": "Desarrollador Frontend (React/TypeScript)",
+        "description": "Trabajando en la interfaz de Nebula: animaciones, responsividad, integración de API.",
+        "requirements": [
+          "Experiencia con React y TypeScript",
+          "Conocimiento de TailwindCSS o similar",
+          "Experiencia con REST API"
+        ]
+      },
+      {
+        "title": "Desarrollador Backend (Node.js)",
+        "description": "Diseñando API para transmisiones, suscripciones y análisis de usuarios.",
+        "requirements": [
+          "Experiencia con Node.js, Express",
+          "Conocimiento de bases de datos (PostgreSQL, MongoDB)",
+          "Experiencia con WebSockets"
+        ]
+      },
+      {
+        "title": "Ingeniero ML/AI",
+        "description": "Red neuronal para recomendaciones de partidos, análisis de juegos y personalización.",
+        "requirements": [
+          "Experiencia con Python (PyTorch/TensorFlow)",
+          "Habilidades en procesamiento de datos",
+          "Entendimiento de análisis deportivos es un plus"
+        ]
+      },
+      {
+        "title": "Desarrollador Móvil (React Native)",
+        "description": "Desarrollando app móvil multiplataforma para iOS y Android enfocada en streaming y notificaciones.",
+        "requirements": [
+          "Experiencia con React Native y Expo",
+          "Conocimiento de módulos nativos",
+          "Experiencia con notificaciones push"
+        ]
+      },
+      {
+        "title": "Científico de Datos (Análisis Deportivos)",
+        "description": "Análisis de datos de partidos, analítica predictiva y mejora de modelos AI para recomendaciones.",
+        "requirements": [
+          "Experiencia con Python, Pandas, Scikit-learn",
+          "Conocimiento de SQL y herramientas de big data",
+          "Interés en deportes y estadísticas"
+        ]
+      },
+      {
+        "title": "Ingeniero DevOps",
+        "description": "Asegurando escalabilidad, CI/CD para servicios de streaming y monitoreo de rendimiento.",
+        "requirements": [
+          "Experiencia con Docker, Kubernetes",
+          "Conocimiento de AWS o nubes similares",
+          "Automatización con Jenkins o GitHub Actions"
+        ]
+      },
+      {
+        "title": "Diseñador UI/UX",
+        "description": "Diseñando interfaces para apps móviles y web considerando la experiencia del usuario en contenido deportivo.",
+        "requirements": [
+          "Experiencia con Figma, Adobe XD",
+          "Conocimiento de principios UX para apps móviles",
+          "Portafolio con proyectos reales"
+        ]
+      },
+      {
+        "title": "Gerente de Comunidad",
+        "description": "Desarrollando comunidad de usuarios, moderando chats, organizando eventos y contenido en redes sociales.",
+        "requirements": [
+          "Experiencia con Discord, Telegram",
+          "Conocimiento de SMM y marketing de contenido",
+          "Interés en deportes y esports"
+        ]
+      },
+      {
+        "title": "Especialista en RRHH",
+        "description": "Reclutamiento y contratación de talentos para startup IT: desarrolladores, diseñadores, especialistas en AI y deportes.",
+        "requirements": [
+          "Experiencia en reclutamiento IT (2+ años)",
+          "Conocimiento de herramientas ATS y LinkedIn",
+          "Entendimiento del stack técnico (React, Node.js, AI)"
+        ]
+      }
+    ]
+  },
+  "profile": {
+  "title": "Tu Perfil",
+  "userInfo": "Información del usuario",
+  "emailLabel": "Email:",
+  "currentSub": "Suscripción actual:",
+  "noSub": "Sin suscripción",
+  "additionalInfo": "Información adicional",
+  "namePlaceholder": "Tu nombre",
+  "phonePlaceholder": "Número de teléfono",
+  "bioPlaceholder": "Cuéntanos sobre ti",
+  "saveInfo": "Guardar información",
+  "saved": "Información guardada!",
+  "error": "Error",
+  "success": "Suscripción exitosa! Actualiza la página para verificar el estado.",
+  "paymentCancelled": "Pago cancelado",
+  "chooseSub": "Elige suscripción",
+  "active": "Activo",
+  "purchase": "Suscribirse",
+  "processing": "Procesando...",
+  "activeSub": "Suscripción activa",
+  "logout": "Cerrar sesión de la cuenta"
+},
+"subscriptions": {
+  "basic": {
+    "name": "Basic",
+    "description": "Acceso inicial a funciones básicas",
+    "features": [
+      "Chat básico",
+      "Soporte estándar",
+      "Streams limitados"
+    ]
+  },
+  "pro": {
+    "name": "Pro",
+    "description": "Capacidades extendidas para usuarios activos",
+    "features": [
+      "Chat extendido",
+      "Soporte prioritario",
+      "Streams ilimitados",
+      "Analítica"
+    ]
+  },
+  "premium": {
+    "name": "Premium",
+    "description": "Acceso premium con funciones exclusivas",
+    "features": [
+      "Chat VIP",
+      "Soporte 24/7",
+      "Contenido exclusivo",
+      "Analítica avanzada"
+    ]
+  },
+  "elite": {
+    "name": "Elite",
+    "description": "Nivel élite para profesionales",
+    "features": [
+      "Chat personal",
+      "Soporte experto",
+      "Streams privados",
+      "Informes personalizados"
+    ]
+  },
+  "vip": {
+    "name": "VIP",
+    "description": "Estado VIP con privilegios máximos",
+    "features": [
+      "Chat VIP exclusivo",
+      "Gerente personal",
+      "Todos los streams",
+      "Analítica premium"
+    ]
+  },
+  "ultimate": {
+    "name": "Ultimate",
+    "description": "Acceso completo a todo",
+    "features": [
+      "Acceso completo",
+      "Servicios personalizados",
+      "Todas las funciones",
+      "Acceso prioritario a todo"
+    ]
+  }
+}
+}

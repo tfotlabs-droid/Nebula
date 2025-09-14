@@ -1,0 +1,270 @@
+{
+  "login": "התחבר",
+  "register": "הירשם",
+  "logout": "התנתק",
+  "myProfile": "הפרופיל שלי",
+  "info": "מידע",
+  "email": "אימייל",
+  "password": "סיסמה",
+  "subscription": "מנוי",
+  "none": "אין",
+  "tariffs": "תעריפים",
+  "orLoginWith": "או התחבר עם",
+  "hasAccount": "כבר יש חשבון?",
+  "orRegisterWith": "או הרשם עם",
+  "noAccount": "אין חשבון?",
+  "registering": "מתחבר...",
+  "loggingIn": "מתחבר...",
+  "registrationFailed": "הרשמה נכשלה",
+  "networkError": "שגיאת רשת",
+  "google": "Google",
+  "apple": "Apple",
+  "yandex": "Yandex",
+  "vk": "VK",
+  "processingAuth": "מעבד הרשאה...",
+  "notFoundTitle": "404",
+  "notFoundMessage": "אופס! איבדת את הדרך ביקום Nebula 🚀",
+  "notFoundDescription": "הדף הזה לא קיים... אולי חייזרים גנבו אותו 👽",
+  "apiLoading": "טוען...",
+  "apiSuccess": "✅ API הגיב: ok={{ok}}, ts={{ts}}",
+  "apiError": "❌ שגיאת בקשת API: {{error}}",
+  "serverError": "שגיאת תגובת שרת",
+  "returnHome": "חזור הביתה 🏠",
+  "home": "דף הבית",
+  "download": "הורד",
+  "contact": {
+    "nav": "צור קשר",
+    "title": "צור קשר",
+    "subtitle": "יש לך שאלות או רעיונות? אנחנו תמיד פתוחים לתקשורת! כתוב לנו ל- {{email}}",
+    "namePlaceholder": "שמך",
+    "emailPlaceholder": "האימייל שלך",
+    "messagePlaceholder": "ההודעה שלך",
+    "submit": "שלח"
+  },
+  "jobs": "משרות",
+  "welcome": "ברוכים הבאים",
+  "welcome_to_nebula": "ברוכים הבאים ל-Nebula",
+  "streams": "הזרמות",
+  "analytics": "ניתוחים",
+  "community": "קהילה",
+  "and": "ו",
+  "ai_recommendations": "המלצות AI",
+  "openMenu": "פתח תפריט",
+  "closeMenu": "סגור תפריט",
+  "countryRegion": "מדינה / אזור",
+  "autoDetectedCountry": "זוהה אוטומטית",
+  "changeCountry": "שנה מדינה",
+  "paymentMethod": "שיטת תשלום",
+  "currency": "מטבע",
+  "yourPaymentMethod": "שיטת התשלום שלך",
+  "testMode": "(ניסוי)",
+  "language": "שפה",
+  "selectLanguage": "בחר שפה",
+  "registrationComplete": "הרשמה הושלמה בהצלחה",
+  "countries": {
+    "RU": "רוסיה",
+    "US": "ארצות הברית",
+    "GB": "בריטניה",
+    "FR": "צרפת",
+    "DE": "גרמניה",
+    "ES": "ספרד",
+    "CN": "סין",
+    "CA": "קנדה",
+    "MX": "מקסיקו",
+    "other": "אחר"
+  },
+  "currencies": {
+    "RUB": "RUB",
+    "USD": "USD",
+    "GBP": "GBP",
+    "EUR": "EUR",
+    "CNY": "CNY",
+    "CAD": "CAD",
+    "MXN": "MXN"
+  },
+  "paymentSystems": {
+    "robokassa": "Robokassa (ניסוי)",
+    "stripe": "Stripe (ניסוי)"
+  },
+  "updateLanguage": "שפה עודכנה",
+  "invalidCountry": "מדינה לא חוקית",
+  "nav": {
+    "home": "דף הבית",
+    "pricing": "תמחור"
+  },
+  "btn": {
+    "subscribe": "הירשם"
+  },
+  "msg": {
+    "payment_method": "שיטת תשלום"
+  },
+  "footer": {
+    "copyright": "® {{year}} Nebula, TFOT Labs. כל הזכויות שמורות.",
+    "privacy": "מדיניות פרטיות",
+    "terms": "תנאי שירות",
+    "language_label": "שפה"
+  },
+  "about": {
+    "title": "אודות",
+    "items": [
+      {
+        "title": "📊 שידורים & ניתוחים",
+        "text": "תוצאות חיות, ניתוחי AI לפני ואחרי המשחק, עובדות מעניינות, וקריינות לכבדי שמיעה ולעיוורים."
+      },
+      {
+        "title": "🤝 קהילה",
+        "text": "חדרי צפייה, צ'אטים, הודעות קוליות, אירועים ולקוחות מקומיים של מעריצים."
+      },
+      {
+        "title": "🛎️ שירותים",
+        "text": "הזמנת אוכל, מונית ו כרטיסים — AI יבחר אפשרויות אופטימליות למשחק ולמיקום."
+      },
+      {
+        "title": "💡 התאמה אישית",
+        "text": "AI יוצר המלצות לאימונים ותזונה על בסיס המטרות שלך."
+      },
+      {
+        "title": "🎧 תמיכה בנגישות",
+        "text": "קריינות אירועים והתאמת ממשק לכבדי שמיעה ולעיוורים."
+      },
+      {
+        "title": "🌍 תכונות חברתיות",
+        "text": "יצירת קהילות, פגישות מקומיות של מעריצים ואינטגרציה עם רשתות חברתיות."
+      }
+    ]
+  },
+  "downloadPage": {
+    "title": "הורד",
+    "platforms": {
+      "ios": "הורד עבור iOS",
+      "android": "הורד עבור Android",
+      "windows": "הורד עבור Windows",
+      "macos": "הורד עבור MacOS"
+    },
+    "windows": {
+      "select": "בחר ארכיטקטורה עבור Windows:",
+      "x86": "Windows x86",
+      "x64": "Windows x64"
+    },
+    "macos": {
+      "select": "בחר מעבד עבור MacOS:",
+      "intel": "MacOS Intel",
+      "appleM": "MacOS Apple M"
+    },
+    "alert": {
+      "ios": "הורדת גרסת iOS התחילה!",
+      "android": "הורדת גרסת Android התחילה!",
+      "windows": {
+        "x86": "הורדת גרסת Windows x86 התחילה!",
+        "x64": "הורדת גרסת Windows x64 התחילה!"
+      },
+      "macos": {
+        "intel": "הורדת גרסת MacOS Intel התחילה!",
+        "appleM": "הורדת גרסת MacOS Apple M התחילה!"
+      }
+    }
+  },
+  "social": {
+    "facebook": "פייסבוק",
+    "instagram": "אינסטגרם",
+    "twitter": "טוויטר",
+    "linkedin": "לינקדאין",
+    "vk": "VK",
+    "telegram": "טלגרם",
+    "odnoklassniki": "אודנוקלסניקי",
+    "whatsapp": "וואטסאפ",
+    "xing": "זינג",
+    "line": "ליין",
+    "youtube": "יוטיוב",
+    "kakao": "קקאו",
+    "naver": "נאוור",
+    "snapchat": "סנאפצ'ט",
+    "wechat": "ויצ'ט",
+    "weibo": "ויבו",
+    "douyin": "דוייין",
+    "bilibili": "ביליבילי"
+  }
+, "profile": {
+  "title": "הפרופיל שלך",
+  "userInfo": "מידע משתמש",
+  "emailLabel": "אימייל:",
+  "currentSub": "מנוי נוכחי:",
+  "noSub": "אין מנוי",
+  "additionalInfo": "מידע נוסף",
+  "namePlaceholder": "שמך",
+  "phonePlaceholder": "מספר טלפון",
+  "bioPlaceholder": "ספר על עצמך",
+  "saveInfo": "שמור מידע",
+  "saved": "המידע נשמר!",
+  "error": "שגיאה",
+  "success": "המנוי הושלם בהצלחה! רענן את הדף כדי לבדוק את הסטטוס.",
+  "paymentCancelled": "התשלום בוטל",
+  "chooseSub": "בחר מנוי",
+  "active": "פעיל",
+  "purchase": "הירשם",
+  "processing": "מעבד...",
+  "activeSub": "מנוי פעיל",
+  "logout": "התנתק מהחשבון"
+},
+"subscriptions": {
+  "basic": {
+    "name": "Basic",
+    "description": "גישה ראשונית לפיצ'רים בסיסיים",
+    "features": [
+      "צ'אט בסיסי",
+      "תמיכה סטנדרטית",
+      "סטרים מוגבלים"
+    ]
+  },
+  "pro": {
+    "name": "Pro",
+    "description": "יכולות מורחבות למשתמשים פעילים",
+    "features": [
+      "צ'אט מורחב",
+      "תמיכה בעדיפות",
+      "סטרים ללא הגבלה",
+      "אנליטיקה"
+    ]
+  },
+  "premium": {
+    "name": "Premium",
+    "description": "גישה פרימיום עם פיצ'רים בלעדיים",
+    "features": [
+      "צ'אט VIP",
+      "תמיכה 24/7",
+      "תוכן בלעדי",
+      "אנליטיקה מתקדמת"
+    ]
+  },
+  "elite": {
+    "name": "Elite",
+    "description": "רמה אליטה למקצוענים",
+    "features": [
+      "צ'אט אישי",
+      "תמיכה מומחית",
+      "סטרים פרטיים",
+      "דוחות מותאמים"
+    ]
+  },
+  "vip": {
+    "name": "VIP",
+    "description": "סטטוס VIP עם הרשאות מקסימליות",
+    "features": [
+      "צ'אט VIP בלעדי",
+      "מנהל אישי",
+      "כל הסטרים",
+      "אנליטיקה פרימיום"
+    ]
+  },
+  "ultimate": {
+    "name": "Ultimate",
+    "description": "גישה מלאה להכל",
+    "features": [
+      "גישה מלאה",
+      "שירותים מותאמים",
+      "כל הפיצ'רים",
+      "גישה בעדיפות להכל"
+    ]
+  }
+}
+}

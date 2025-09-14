@@ -2,20 +2,40 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaRunning } from "react-icons/fa";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+import { useAuth } from '../context/AuthContext';
 import logo from "../assets/nebula.png";
-
-const navLinks = [
-  { id: "about", label: "О проекте" },
-  { id: "contact", label: "Контакты" },
-  { id: "jobs", label: "Вакансии" },
-  { id: "download", label: "Скачать" },
-];
-
-
 const Navbar: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useTranslation();
+  const { user } = useAuth();
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+ 
+  const profileIcon = (
+    <svg
+      className="w-8 h-8 text-current"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+      />
+    </svg>
+  );
+ 
+  const navLinks = [
+    { id: "home", label: t('home') },
+    { id: "about", label: t('about.title') },
+    { id: "download", label: t('download') },
+    { id: "contact", label: t('contact.nav') },
+    { id: "jobs", label: t('jobs.title') },
+  ];
 
   const handleAnchorClick = (targetId: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -43,10 +63,24 @@ const Navbar: React.FC = () => {
       </Link>
 
 
+      {/* ЦЕНТР - АВТОРИЗАЦИЯ (скрыто на мобильных) */}
+      <div className="hidden md:flex items-center space-x-4 flex-1 justify-center">
+        {user ? (
+          <Link to="/profile" className="flex items-center p-1 rounded hover:bg-white/10">
+            {profileIcon}
+          </Link>
+        ) : (
+          <>
+            <Link to="/login" className="text-white hover:text-indigo-300">{t('login')}</Link>
+            <Link to="/register" className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">{t('register')}</Link>
+          </>
+        )}
+      </div>
+
       {/* КНОПКА-ИКОНКА СПРАВА (меню) */}
       <div className="flex items-center">
         <motion.button
-          aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
+          aria-label={menuOpen ? t('closeMenu') : t('openMenu')}
           aria-haspopup="true"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((s) => !s)}
@@ -54,6 +88,7 @@ const Navbar: React.FC = () => {
           whileTap={{ scale: 1.2, rotate: 20 }}
           transition={{ type: 'spring', stiffness: 300, damping: 18 }}
         >
+          {/* @ts-ignore */}
           <FaRunning size={36} />
         </motion.button>
       </div>

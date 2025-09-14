@@ -1,0 +1,369 @@
+{
+  "login": "登录",
+  "register": "注册",
+  "logout": "登出",
+  "myProfile": "我的个人资料",
+  "info": "信息",
+  "email": "电子邮件",
+  "password": "密码",
+  "subscription": "订阅",
+  "none": "无",
+  "tariffs": "资费",
+  "orLoginWith": "或使用登录",
+  "hasAccount": "已有帐户？",
+  "orRegisterWith": "或使用注册",
+  "noAccount": "没有帐户？",
+  "registering": "注册中...",
+  "loggingIn": "登录中...",
+  "registrationFailed": "注册失败",
+  "networkError": "网络错误",
+  "google": "Google",
+  "apple": "Apple",
+  "yandex": "Yandex",
+  "vk": "VK",
+  "processingAuth": "处理授权...",
+  "notFoundTitle": "404",
+  "notFoundMessage": "哎呀！您在Nebula宇宙中迷路了 🚀",
+  "notFoundDescription": "此页面不存在...也许外星人偷走了它 👽",
+  "apiLoading": "加载中...",
+  "apiSuccess": "✅ API响应: ok={{ok}}, ts={{ts}}",
+  "apiError": "❌ API请求错误: {{error}}",
+  "serverError": "服务器响应错误",
+  "returnHome": "返回首页 🏠",
+  "home": "首页",
+  "download": "下载",
+  "welcome": "欢迎",
+  "openMenu": "打开菜单",
+  "closeMenu": "关闭菜单",
+  "countryRegion": "国家 / 地区",
+  "autoDetectedCountry": "自动检测",
+  "changeCountry": "更改国家",
+  "paymentMethod": "支付方式",
+  "currency": "货币",
+  "yourPaymentMethod": "您的支付方式",
+  "testMode": "(测试)",
+  "language": "语言",
+  "selectLanguage": "选择语言",
+  "registrationComplete": "注册成功完成",
+  "countries": {
+    "RU": "俄罗斯",
+    "US": "美国",
+    "GB": "英国",
+    "FR": "法国",
+    "DE": "德国",
+    "ES": "西班牙",
+    "CN": "中国",
+    "CA": "加拿大",
+    "MX": "墨西哥",
+    "other": "其他"
+  },
+  "currencies": {
+    "RUB": "RUB",
+    "USD": "USD",
+    "GBP": "GBP",
+    "EUR": "EUR",
+    "CNY": "CNY",
+    "CAD": "CAD",
+    "MXN": "MXN"
+  },
+  "paymentSystems": {
+    "robokassa": "Robokassa (测试)",
+    "stripe": "Stripe (测试)"
+  },
+  "updateLanguage": "语言已更新",
+  "invalidCountry": "无效国家",
+  "footer": {
+    "copyright": "® {{year}} Nebula, TFOT Labs。保留所有权利。",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "language_label": "语言"
+  },
+  "welcome_to_nebula": "欢迎来到 Nebula",
+  "streams": "直播",
+  "analytics": "分析",
+  "community": "社区",
+  "and": "和",
+  "ai_recommendations": "AI 推荐",
+  "wechat": "微信",
+  "qq": "QQ",
+  "weibo": "微博",
+  "nav": {
+    "home": "首页",
+    "pricing": "定价"
+  },
+  "btn": {
+    "subscribe": "订阅"
+  },
+  "msg": {
+    "payment_method": "支付方式"
+  },
+  "about": {
+    "title": "关于",
+    "items": [
+      {
+        "title": "📊 转播 & 分析",
+        "text": "实时比分、赛前和赛后 AI 分析、有趣的事实，以及为听力和视力障碍者的配音。"
+      },
+      {
+        "title": "🤝 社区",
+        "text": "观看室、聊天、语音消息、活动和本地粉丝聚会。"
+      },
+      {
+        "title": "🛎️ 服务",
+        "text": "订购食物、出租车和门票 — AI 将为比赛和地点选择最佳选项。"
+      },
+      {
+        "title": "💡 个性化",
+        "text": "AI 根据您的目标形成锻炼和营养推荐。"
+      },
+      {
+        "title": "🎧 无障碍支持",
+        "text": "事件配音和针对听力和视力障碍者的界面适应。"
+      },
+      {
+        "title": "🌍 社交功能",
+        "text": "创建社区、本地粉丝会议以及与社交网络的集成。"
+      }
+    ]
+  },
+  "downloadPage": {
+    "title": "下载",
+    "platforms": {
+      "ios": "下载 iOS 版",
+      "android": "下载 Android 版",
+      "windows": "下载 Windows 版",
+      "macos": "下载 MacOS 版"
+    },
+    "windows": {
+      "select": "为 Windows 选择架构：",
+      "x86": "Windows x86",
+      "x64": "Windows x64"
+    },
+    "macos": {
+      "select": "为 MacOS 选择处理器：",
+      "intel": "MacOS Intel",
+      "appleM": "MacOS Apple M"
+    },
+    "alert": {
+      "ios": "iOS 版本下载开始！",
+      "android": "Android 版本下载开始！",
+      "windows": {
+        "x86": "Windows x86 版本下载开始！",
+        "x64": "Windows x64 版本下载开始！"
+      },
+      "macos": {
+        "intel": "MacOS Intel 版本下载开始！",
+        "appleM": "MacOS Apple M 版本下载开始！"
+      }
+    }
+  },
+  "contact": {
+    "nav": "联系我们",
+    "title": "联系我们",
+    "subtitle": "有问题或想法吗？我们随时欢迎沟通！请写邮件至 {{email}}",
+    "namePlaceholder": "您的姓名",
+    "emailPlaceholder": "您的邮箱",
+    "messagePlaceholder": "您的消息",
+    "submit": "发送"
+  },
+  "social": {
+    "telegram": "电报",
+    "instagram": "Instagram",
+    "vk": "VK",
+    "twitter": "Twitter",
+    "wechat": "微信",
+    "weibo": "微博",
+    "douyin": "抖音",
+    "bilibili": "哔哩哔哩"
+  },
+  "jobs": {
+    "title": "职位",
+    "sectionTitle": "职位",
+    "requirements": "要求：",
+    "apply": "申请",
+    "modalTitle": "职位申请：",
+    "form": {
+      "name": "姓名",
+      "email": "电子邮件",
+      "phone": "电话",
+      "telegram": "微信",
+      "resume": "简历链接"
+    },
+    "errors": {
+      "nameRequired": "请输入姓名",
+      "emailRequired": "请输入电子邮件",
+      "emailInvalid": "电子邮件无效",
+      "phoneRequired": "请输入电话号码",
+      "telegramRequired": "请输入微信",
+      "resumeRequired": "提供简历链接"
+    },
+    "applicationSent": "申请已发送！🚀",
+    "submit": "发送",
+    "vacancies": [
+      {
+        "title": "前端开发 (React/TypeScript)",
+        "description": "开发 Nebula 接口：动画、响应式、API 集成。",
+        "requirements": [
+          "React 和 TypeScript 经验",
+          "TailwindCSS 或类似知识",
+          "REST API 经验"
+        ]
+      },
+      {
+        "title": "后端开发 (Node.js)",
+        "description": "设计广播、订阅和用户分析 API。",
+        "requirements": [
+          "Node.js、Express 经验",
+          "数据库知识 (PostgreSQL、MongoDB)",
+          "WebSockets 经验"
+        ]
+      },
+      {
+        "title": "ML/AI 工程师",
+        "description": "用于比赛推荐、游戏分析和个性化的神经网络。",
+        "requirements": [
+          "Python (PyTorch/TensorFlow) 经验",
+          "数据处理技能",
+          "体育分析理解为加分项"
+        ]
+      },
+      {
+        "title": "移动开发 (React Native)",
+        "description": "开发 iOS 和 Android 跨平台移动应用，专注于流媒体和通知。",
+        "requirements": [
+          "React Native 和 Expo 经验",
+          "原生模块知识",
+          "推送通知经验"
+        ]
+      },
+      {
+        "title": "数据科学家 (体育分析)",
+        "description": "比赛数据分析、预测分析和改进推荐 AI 模型。",
+        "requirements": [
+          "Python、Pandas、Scikit-learn 经验",
+          "SQL 和大数据工具知识",
+          "对体育和统计的兴趣"
+        ]
+      },
+      {
+        "title": "DevOps 工程师",
+        "description": "确保可扩展性、流媒体服务的 CI/CD 和性能监控。",
+        "requirements": [
+          "Docker、Kubernetes 经验",
+          "AWS 或类似云知识",
+          "Jenkins 或 GitHub Actions 自动化"
+        ]
+      },
+      {
+        "title": "UI/UX 设计师",
+        "description": "设计移动和网页应用接口，考虑体育内容的用户体验。",
+        "requirements": [
+          "Figma、Adobe XD 经验",
+          "移动应用 UX 原则知识",
+          "真实项目作品集"
+        ]
+      },
+      {
+        "title": "社区经理",
+        "description": "发展用户社区、聊天审核、事件组织和社会媒体内容。",
+        "requirements": [
+          "Discord、Telegram 经验",
+          "SMM 和内容营销知识",
+          "对体育和电子竞技的兴趣"
+        ]
+      },
+      {
+        "title": "HR 专家",
+        "description": "为 IT 初创公司招聘人才：开发人员、设计师、AI 和体育专家。",
+        "requirements": [
+          "IT 招聘经验 (2+ 年)",
+          "ATS 工具和 LinkedIn 知识",
+          "技术栈理解 (React、Node.js、AI)"
+        ]
+      }
+    ]
+  }
+, "profile": {
+  "title": "您的个人资料",
+  "userInfo": "用户资料",
+  "emailLabel": "电子邮件:",
+  "currentSub": "当前订阅:",
+  "noSub": "无订阅",
+  "additionalInfo": "附加信息",
+  "namePlaceholder": "您的姓名",
+  "phonePlaceholder": "电话号码",
+  "bioPlaceholder": "介绍自己",
+  "saveInfo": "保存信息",
+  "saved": "信息已保存!",
+  "error": "错误",
+  "success": "订阅成功! 刷新页面检查状态。",
+  "paymentCancelled": "支付已取消",
+  "chooseSub": "选择订阅",
+  "active": "活跃",
+  "purchase": "订阅",
+  "processing": "处理中...",
+  "activeSub": "活跃订阅",
+  "logout": "从帐户登出"
+},
+"subscriptions": {
+  "basic": {
+    "name": "Basic",
+    "description": "基本功能初始访问",
+    "features": [
+      "基本聊天",
+      "标准支持",
+      "有限流媒体"
+    ]
+  },
+  "pro": {
+    "name": "Pro",
+    "description": "活跃用户扩展功能",
+    "features": [
+      "扩展聊天",
+      "优先支持",
+      "无限流媒体",
+      "分析"
+    ]
+  },
+  "premium": {
+    "name": "Premium",
+    "description": "带独家功能的优质访问",
+    "features": [
+      "VIP聊天",
+      "24/7支持",
+      "独家内容",
+      "高级分析"
+    ]
+  },
+  "elite": {
+    "name": "Elite",
+    "description": "专业人士精英级别",
+    "features": [
+      "个人聊天",
+      "专家支持",
+      "私人流媒体",
+      "自定义报告"
+    ]
+  },
+  "vip": {
+    "name": "VIP",
+    "description": "VIP状态带最大特权",
+    "features": [
+      "独家VIP聊天",
+      "个人经理",
+      "所有流媒体",
+      "优质分析"
+    ]
+  },
+  "ultimate": {
+    "name": "Ultimate",
+    "description": "所有内容完整访问",
+    "features": [
+      "完整访问",
+      "个性化服务",
+      "所有功能",
+      "所有优先访问"
+    ]
+  }
+}
+}

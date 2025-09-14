@@ -1,0 +1,356 @@
+{
+  "login": "Anmelden",
+  "register": "Registrieren",
+  "logout": "Abmelden",
+  "myProfile": "Mein Profil",
+  "info": "Informationen",
+  "email": "E-Mail",
+  "password": "Passwort",
+  "subscription": "Abonnement",
+  "none": "Keine",
+  "tariffs": "Tarife",
+  "orLoginWith": "Oder mit anmelden",
+  "hasAccount": "Schon ein Konto?",
+  "orRegisterWith": "Oder mit registrieren",
+  "noAccount": "Kein Konto?",
+  "registering": "Registrieren...",
+  "loggingIn": "Anmelden...",
+  "registrationFailed": "Registrierung fehlgeschlagen",
+  "networkError": "Netzwerkfehler",
+  "google": "Google",
+  "apple": "Apple",
+  "yandex": "Yandex",
+  "vk": "VK",
+  "processingAuth": "Autorisierung wird verarbeitet...",
+  "notFoundTitle": "404",
+  "notFoundMessage": "Oops! Sie haben sich im Nebula-Universum verirrt 🚀",
+  "notFoundDescription": "Diese Seite existiert nicht... vielleicht haben Aliens sie gestohlen 👽",
+  "apiLoading": "Laden...",
+  "apiSuccess": "✅ API geantwortet: ok={{ok}}, ts={{ts}}",
+  "apiError": "❌ API-Anfehler: {{error}}",
+  "serverError": "Server-Antwortfehler",
+  "returnHome": "Zurück zur Startseite 🏠",
+  "home": "Startseite",
+  "download": "Herunterladen",
+  "contact": {
+    "nav": "Kontakt",
+    "title": "Kontaktieren Sie uns",
+    "subtitle": "Haben Sie Fragen oder Ideen? Wir sind immer offen für Kommunikation! Schreiben Sie uns an {{email}}",
+    "namePlaceholder": "Ihr Name",
+    "emailPlaceholder": "Ihre E-Mail",
+    "messagePlaceholder": "Ihre Nachricht",
+    "submit": "Senden"
+  },
+  "welcome": "Willkommen",
+  "welcome_to_nebula": "Willkommen bei Nebula",
+  "streams": "Streams",
+  "analytics": "Analytik",
+  "community": "Community",
+  "and": "und",
+  "ai_recommendations": "KI-Empfehlungen",
+  "openMenu": "Menü öffnen",
+  "closeMenu": "Menü schließen",
+  "countryRegion": "Land / Region",
+  "autoDetectedCountry": "Automatisch erkannt",
+  "changeCountry": "Land ändern",
+  "paymentMethod": "Zahlungsmethode",
+  "currency": "Währung",
+  "yourPaymentMethod": "Ihre Zahlungsmethode",
+  "testMode": "(Test)",
+  "language": "Sprache",
+  "selectLanguage": "Sprache auswählen",
+  "registrationComplete": "Registrierung erfolgreich abgeschlossen",
+  "countries": {
+    "RU": "Russland",
+    "US": "Vereinigte Staaten",
+    "GB": "Vereinigtes Königreich",
+    "FR": "Frankreich",
+    "DE": "Deutschland",
+    "ES": "Spanien",
+    "CN": "China",
+    "CA": "Kanada",
+    "MX": "Mexiko",
+    "other": "Andere"
+  },
+  "currencies": {
+    "RUB": "RUB",
+    "USD": "USD",
+    "GBP": "GBP",
+    "EUR": "EUR",
+    "CNY": "CNY",
+    "CAD": "CAD",
+    "MXN": "MXN"
+  },
+  "paymentSystems": {
+    "robokassa": "Robokassa (Test)",
+    "stripe": "Stripe (Test)"
+  },
+  "updateLanguage": "Sprache aktualisiert",
+  "invalidCountry": "Ungültiges Land",
+  "nav": {
+    "home": "Startseite",
+    "pricing": "Preise"
+  },
+  "btn": {
+    "subscribe": "Abonnieren"
+  },
+  "msg": {
+    "payment_method": "Zahlungsmethode"
+  },
+  "footer": {
+    "copyright": "® {{year}} Nebula, TFOT Labs. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen",
+    "language_label": "Sprache"
+  },
+  "about": {
+    "title": "Über",
+    "items": [
+      {
+        "title": "📊 Übertragungen & Analytik",
+        "text": "Live-Scores, vor- und nach dem Spiel KI-Analysen, interessante Fakten und Voiceover für Hör- und Sehbehinderte."
+      },
+      {
+        "title": "🤝 Community",
+        "text": "Anzeigeräume, Chats, Sprachnachrichten, Events und lokale Fan-Treffen."
+      },
+      {
+        "title": "🛎️ Services",
+        "text": "Bestellen Sie Essen, Taxi und Tickets — KI wählt optimale Optionen für das Spiel und den Ort."
+      },
+      {
+        "title": "💡 Personalisierung",
+        "text": "KI erstellt Empfehlungen für Workouts und Ernährung basierend auf Ihren Zielen."
+      },
+      {
+        "title": "🎧 Barrierefreiheit-Unterstützung",
+        "text": "Event-Voiceover und Interface-Anpassung für Hör- und Sehbehinderte."
+      },
+      {
+        "title": "🌍 Soziale Funktionen",
+        "text": "Erstellen von Communities, lokale Fan-Treffen und Integration mit sozialen Netzwerken."
+      }
+    ]
+  },
+  "downloadPage": {
+    "title": "Herunterladen",
+    "platforms": {
+      "ios": "Für iOS herunterladen",
+      "android": "Für Android herunterladen",
+      "windows": "Für Windows herunterladen",
+      "macos": "Für MacOS herunterladen"
+    },
+    "windows": {
+      "select": "Wählen Sie die Architektur für Windows:",
+      "x86": "Windows x86",
+      "x64": "Windows x64"
+    },
+    "macos": {
+      "select": "Wählen Sie den Prozessor für MacOS:",
+      "intel": "MacOS Intel",
+      "appleM": "MacOS Apple M"
+    },
+    "alert": {
+      "ios": "Download der iOS-Version begonnen!",
+      "android": "Download der Android-Version begonnen!",
+      "windows": {
+        "x86": "Download der Windows x86-Version begonnen!",
+        "x64": "Download der Windows x64-Version begonnen!"
+      },
+      "macos": {
+        "intel": "Download der MacOS Intel-Version begonnen!",
+        "appleM": "Download der MacOS Apple M-Version begonnen!"
+      }
+    }
+  },
+  "jobs": {
+    "title": "Stellen",
+    "sectionTitle": "Stellen",
+    "requirements": "Anforderungen:",
+    "apply": "Bewerben",
+    "modalTitle": "Bewerbung für Position: ",
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "telegram": "@Telegram",
+      "resume": "Lebenslauf-Link"
+    },
+    "errors": {
+      "nameRequired": "Name eingeben",
+      "emailRequired": "E-Mail eingeben",
+      "emailInvalid": "Ungültige E-Mail",
+      "phoneRequired": "Telefonnummer eingeben",
+      "telegramRequired": "Telegram eingeben",
+      "resumeRequired": "Lebenslauf-Link angeben"
+    },
+    "applicationSent": "Bewerbung gesendet! 🚀",
+    "submit": "Senden",
+    "vacancies": [
+      {
+        "title": "Frontend-Entwickler (React/TypeScript)",
+        "description": "Arbeit an der Nebula-Oberfläche: Animationen, Responsivität, API-Integration.",
+        "requirements": [
+          "Erfahrung mit React und TypeScript",
+          "Kenntnisse in TailwindCSS oder Ähnlichem",
+          "Erfahrung mit REST API"
+        ]
+      },
+      {
+        "title": "Backend-Entwickler (Node.js)",
+        "description": "Design von API für Übertragungen, Abonnements und Nutzeranalysen.",
+        "requirements": [
+          "Erfahrung mit Node.js, Express",
+          "Kenntnisse in Datenbanken (PostgreSQL, MongoDB)",
+          "Erfahrung mit WebSockets"
+        ]
+      },
+      {
+        "title": "ML/AI-Ingenieur",
+        "description": "Neuronales Netz für Spiel-Empfehlungen, Spielanalyse und Personalisierung.",
+        "requirements": [
+          "Erfahrung mit Python (PyTorch/TensorFlow)",
+          "Fähigkeiten in der Datenverarbeitung",
+          "Verständnis für Sportanalysen von Vorteil"
+        ]
+      },
+      {
+        "title": "Mobile-Entwickler (React Native)",
+        "description": "Entwicklung einer plattformübergreifenden Mobile-App für iOS und Android mit Fokus auf Streaming und Benachrichtigungen.",
+        "requirements": [
+          "Erfahrung mit React Native und Expo",
+          "Kenntnisse nativer Module",
+          "Erfahrung mit Push-Benachrichtigungen"
+        ]
+      },
+      {
+        "title": "Data Scientist (Sportanalysen)",
+        "description": "Analyse von Spiel-Daten, prädiktive Analysen und Verbesserung von KI-Modellen für Empfehlungen.",
+        "requirements": [
+          "Erfahrung mit Python, Pandas, Scikit-learn",
+          "Kenntnisse in SQL und Big-Data-Tools",
+          "Interesse an Sport und Statistik"
+        ]
+      },
+      {
+        "title": "DevOps-Ingenieur",
+        "description": "Sicherstellung der Skalierbarkeit, CI/CD für Streaming-Dienste und Performance-Überwachung.",
+        "requirements": [
+          "Erfahrung mit Docker, Kubernetes",
+          "Kenntnisse in AWS oder ähnlichen Clouds",
+          "Automatisierung mit Jenkins oder GitHub Actions"
+        ]
+      },
+      {
+        "title": "UI/UX-Designer",
+        "description": "Design von Oberflächen für Mobile- und Web-Apps unter Berücksichtigung der Nutzererfahrung bei Sportinhalten.",
+        "requirements": [
+          "Erfahrung mit Figma, Adobe XD",
+          "Kenntnisse von UX-Prinzipien für Mobile-Apps",
+          "Portfolio mit realen Projekten"
+        ]
+      },
+      {
+        "title": "Community-Manager",
+        "description": "Entwicklung der Nutzer-Community, Moderation von Chats, Organisation von Events und Social-Media-Inhalten.",
+        "requirements": [
+          "Erfahrung mit Discord, Telegram",
+          "Kenntnisse in SMM und Content-Marketing",
+          "Interesse an Sport und E-Sport"
+        ]
+      },
+      {
+        "title": "HR-Spezialist",
+        "description": "Rekrutierung und Einstellung von Talenten für IT-Startup: Entwickler, Designer, AI- und Sport-Spezialisten.",
+        "requirements": [
+          "Erfahrung im IT-Rekrutierung (2+ Jahre)",
+          "Kenntnisse in ATS-Tools und LinkedIn",
+          "Verständnis des Tech-Stacks (React, Node.js, AI)"
+        ]
+      }
+    ]
+  }
+, "profile": {
+  "title": "Ihr Profil",
+  "userInfo": "Benutzerinformationen",
+  "emailLabel": "E-Mail:",
+  "currentSub": "Aktuelles Abonnement:",
+  "noSub": "Kein Abonnement",
+  "additionalInfo": "Zusätzliche Informationen",
+  "namePlaceholder": "Ihr Name",
+  "phonePlaceholder": "Telefonnummer",
+  "bioPlaceholder": "Erzählen Sie von sich",
+  "saveInfo": "Informationen speichern",
+  "saved": "Informationen gespeichert!",
+  "error": "Fehler",
+  "success": "Abonnement erfolgreich abonniert! Aktualisieren Sie die Seite, um den Status zu überprüfen.",
+  "paymentCancelled": "Zahlung abgebrochen",
+  "chooseSub": "Abonnement wählen",
+  "active": "Aktiv",
+  "purchase": "Abonnement abschließen",
+  "processing": "Verarbeitung...",
+  "activeSub": "Aktives Abonnement",
+  "logout": "Aus dem Konto ausloggen"
+},
+"subscriptions": {
+  "basic": {
+    "name": "Basic",
+    "description": "Erstzugriff auf grundlegende Funktionen",
+    "features": [
+      "Basis-Chat",
+      "Standard-Support",
+      "Begrenzte Streams"
+    ]
+  },
+  "pro": {
+    "name": "Pro",
+    "description": "Erweiterte Funktionen für aktive Nutzer",
+    "features": [
+      "Erweiterter Chat",
+      "Priorisierter Support",
+      "Unbegrenzte Streams",
+      "Analytics"
+    ]
+  },
+  "premium": {
+    "name": "Premium",
+    "description": "Premium-Zugang mit exklusiven Funktionen",
+    "features": [
+      "VIP-Chat",
+      "24/7-Support",
+      "Exklusiver Inhalt",
+      "Erweiterte Analytics"
+    ]
+  },
+  "elite": {
+    "name": "Elite",
+    "description": "Elite-Level für Profis",
+    "features": [
+      "Persönlicher Chat",
+      "Expertensupport",
+      "Private Streams",
+      "Benutzerdefinierte Berichte"
+    ]
+  },
+  "vip": {
+    "name": "VIP",
+    "description": "VIP-Status mit maximalen Privilegien",
+    "features": [
+      "Exklusiver VIP-Chat",
+      "Persönlicher Manager",
+      "Alle Streams",
+      "Premium-Analytics"
+    ]
+  },
+  "ultimate": {
+    "name": "Ultimate",
+    "description": "Vollzugriff auf alles",
+    "features": [
+      "Vollzugriff",
+      "Personalisierte Dienste",
+      "Alle Funktionen",
+      "Priorisierter Zugriff auf alles"
+    ]
+  }
+}
+}

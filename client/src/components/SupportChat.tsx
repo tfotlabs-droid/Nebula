@@ -1,11 +1,9 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { io, Socket } from "socket.io-client";
 
 const WS_URL = process.env.REACT_APP_WS_URL || "http://localhost:5000";
 const CHAT_ID = "nebula-support";
-
 
 const SupportChat: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -14,32 +12,59 @@ const SupportChat: React.FC = () => {
   const socketRef = useRef<Socket | null>(null);
   const chatBottomRef = useRef<HTMLDivElement>(null);
 
+  // Загружаем историю из localStorage при первом рендере
+  useEffect(() => {
+    const saved = localStorage.getItem("nebula-chat-history");
+    if (saved) {
+      try {
+        setMessages(JSON.parse(saved));
+      } catch {
+        console.warn("Ошибка парсинга истории чата");
+      }
+    }
+  }, []);
+
+  // Инициализация сокета
   useEffect(() => {
     if (!open) return;
+
     if (!socketRef.current) {
       const socket = io(WS_URL, { transports: ["websocket"] });
       socketRef.current = socket;
 
       socket.on("connect", () => {
-        socket.emit("chat:history", CHAT_ID);
+        console.log("✅ Connected to chat server");
+        socket.emit("chat:join", CHAT_ID);      // 🔑 подписка на комнату (backend emits history on join)
       });
+
       socket.on("chat:history", (msgs: any[]) => {
         setMessages(msgs);
       });
+
       socket.on("chat:message", (msg: any) => {
         setMessages((m) => [...m, msg]);
       });
+
+      socket.on("disconnect", () => {
+        console.log("❌ Disconnected from chat server");
+      });
     } else {
-      socketRef.current.emit("chat:history", CHAT_ID);
+      // No need for separate history emit; it's sent on join
     }
-    return () => {
-      // socketRef.current?.disconnect(); // не отключаем, чтобы чат оставался живым
-    };
   }, [open]);
 
+  // Автоскролл вниз
   useEffect(() => {
     chatBottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open]);
+
+  // Сохраняем историю в localStorage
+  useEffect(() => {
+    if (messages.length > 0) {
+      const limited = messages.slice(-50); // последние 50 сообщений
+      localStorage.setItem("nebula-chat-history", JSON.stringify(limited));
+    }
+  }, [messages]);
 
   const send = () => {
     if (!text.trim() || !socketRef.current) return;
@@ -62,15 +87,19 @@ const SupportChat: React.FC = () => {
             transition={{ duration: 0.3 }}
             className="w-80 bg-white rounded-2xl shadow-2xl overflow-hidden mb-4"
           >
+            {/* Хедер */}
             <div className="bg-indigo-600 text-white p-3 flex justify-between items-center">
               <div className="font-semibold">Поддержка Nebula</div>
               <button onClick={() => setOpen(false)}>✕</button>
             </div>
 
-
+            {/* Сообщения */}
             <div className="p-3 max-h-64 overflow-auto">
               {messages.map((m, i) => (
-                <div key={i} className={`mb-3 ${m.from === "user" ? "text-right" : "text-left"}`}>
+                <div
+                  key={i}
+                  className={`mb-3 ${m.from === "user" ? "text-right" : "text-left"}`}
+                >
                   <div
                     className={`inline-block px-3 py-2 rounded-lg ${
                       m.from === "user"
@@ -80,18 +109,28 @@ const SupportChat: React.FC = () => {
                         : "bg-gray-100 text-gray-900"
                     }`}
                   >
-                    {m.text}
+                    {m.type === "link" ? (
+                      <button
+                        onClick={() => window.location.href = window.location.origin + m.url}
+                        className="w-full text-left bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition"
+                      >
+                        {m.text}
+                      </button>
+                    ) : (
+                      m.text
+                    )}
                   </div>
                 </div>
               ))}
               <div ref={chatBottomRef} />
             </div>
 
+            {/* Инпут */}
             <div className="p-3 border-t bg-gray-50">
               <div className="flex gap-2">
                 <input
                   value={text}
-                  onChange={e => setText(e.target.value)}
+                  onChange={(e) => setText(e.target.value)}
                   className="flex-1 border rounded-lg px-3 py-2 text-sm"
                   placeholder="Опиши проблему..."
                 />
@@ -121,6 +160,7 @@ const SupportChat: React.FC = () => {
         )}
       </AnimatePresence>
 
+      {/* Кнопка открытия */}
       {!open && (
         <motion.button
           onClick={() => setOpen(true)}

@@ -1,0 +1,376 @@
+{
+  "login": "ログイン",
+  "register": "登録",
+  "logout": "ログアウト",
+  "myProfile": "マイプロフィール",
+  "info": "情報",
+  "email": "メール",
+  "password": "パスワード",
+  "subscription": "サブスクリプション",
+  "none": "なし",
+  "tariffs": "料金プラン",
+  "orLoginWith": "またはでログイン",
+  "hasAccount": "アカウントをお持ちですか？",
+  "orRegisterWith": "またはで登録",
+  "noAccount": "アカウントがないですか？",
+  "registering": "登録中...",
+  "loggingIn": "ログイン中...",
+  "registrationFailed": "登録に失敗しました",
+  "networkError": "ネットワークエラー",
+  "google": "Google",
+  "apple": "Apple",
+  "yandex": "Yandex",
+  "vk": "VK",
+  "processingAuth": "認証処理中...",
+  "notFoundTitle": "404",
+  "notFoundMessage": "おっと！Nebulaの宇宙で迷子になりました🚀",
+  "notFoundDescription": "このページは存在しません...エイリアンが盗んだかも👽",
+  "apiLoading": "読み込み中...",
+  "apiSuccess": "✅ API応答: ok={{ok}}, ts={{ts}}",
+  "apiError": "❌ APIリクエストエラー: {{error}}",
+  "serverError": "サーバー応答エラー",
+  "returnHome": "ホームに戻る🏠",
+  "home": "ホーム",
+  "download": "ダウンロード",
+  "contact": {
+    "nav": "連絡先",
+    "title": "お問い合わせ",
+    "subtitle": "質問やアイデアはありますか？私たちはいつもコミュニケーションにオープンです！ {{email}} に書いてください",
+    "namePlaceholder": "あなたの名前",
+    "emailPlaceholder": "あなたのメール",
+    "messagePlaceholder": "あなたのメッセージ",
+    "submit": "送信"
+  },
+  "welcome": "ようこそ",
+  "welcome_to_nebula": "Nebulaへようこそ",
+  "streams": "ストリーム",
+  "analytics": "アナリティクス",
+  "community": "コミュニティ",
+  "and": "と",
+  "ai_recommendations": "AI推奨",
+  "openMenu": "メニューを開く",
+  "closeMenu": "メニューを閉じる",
+  "countryRegion": "国 / 地域",
+  "autoDetectedCountry": "自動検出",
+  "changeCountry": "国を変更",
+  "paymentMethod": "支払い方法",
+  "currency": "通貨",
+  "yourPaymentMethod": "あなたの支払い方法",
+  "testMode": "(テスト)",
+  "language": "言語",
+  "selectLanguage": "言語を選択",
+  "registrationComplete": "登録が正常に完了しました",
+  "countries": {
+    "RU": "ロシア",
+    "US": "アメリカ合衆国",
+    "GB": "イギリス",
+    "FR": "フランス",
+    "DE": "ドイツ",
+    "ES": "スペイン",
+    "CN": "中国",
+    "CA": "カナダ",
+    "MX": "メキシコ",
+    "other": "その他"
+  },
+  "currencies": {
+    "RUB": "RUB",
+    "USD": "USD",
+    "GBP": "GBP",
+    "EUR": "EUR",
+    "CNY": "CNY",
+    "CAD": "CAD",
+    "MXN": "MXN"
+  },
+  "paymentSystems": {
+    "robokassa": "Robokassa (テスト)",
+    "stripe": "Stripe (テスト)"
+  },
+  "updateLanguage": "言語が更新されました",
+  "invalidCountry": "無効な国",
+  "nav": {
+    "home": "ホーム",
+    "pricing": "価格"
+  },
+  "btn": {
+    "subscribe": "購読"
+  },
+  "msg": {
+    "payment_method": "支払い方法"
+  },
+  "footer": {
+    "copyright": "® {{year}} Nebula, TFOT Labs. 全著作権所有。",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "language_label": "言語"
+  },
+  "about": {
+    "title": "概要",
+    "items": [
+      {
+        "title": "📊 放送 & アナリティクス",
+        "text": "ライブスコア、試合前後 AI アナリティクス、興味深い事実、聴覚障害者と視覚障害者のためのボイスオーバー。"
+      },
+      {
+        "title": "🤝 コミュニティ",
+        "text": "視聴ルーム、チャット、ボイスメッセージ、イベント、地元ファン集会。"
+      },
+      {
+        "title": "🛎️ サービス",
+        "text": "食事、タクシー、チケットの注文 — AI が試合と場所に最適なオプションを選択。"
+      },
+      {
+        "title": "💡 パーソナライズ",
+        "text": "AI が目標に基づくワークアウトと栄養の推奨を形成。"
+      },
+      {
+        "title": "🎧 アクセシビリティサポート",
+        "text": "イベントボイスオーバーと聴覚障害者と視覚障害者のためのインターフェース適応。"
+      },
+      {
+        "title": "🌍 ソーシャル機能",
+        "text": "コミュニティ作成、地元ファン会議、ソーシャルネットワーク統合。"
+      }
+    ]
+  },
+  "downloadPage": {
+    "title": "📲 ダウンロード",
+    "platforms": {
+      "ios": "iOS用ダウンロード",
+      "android": "Android用ダウンロード",
+      "windows": "Windows用ダウンロード",
+      "macos": "MacOS用ダウンロード"
+    },
+    "windows": {
+      "select": "Windowsのアーキテクチャを選択：",
+      "x86": "Windows x86",
+      "x64": "Windows x64"
+    },
+    "macos": {
+      "select": "MacOSのプロセッサを選択：",
+      "intel": "MacOS Intel",
+      "appleM": "MacOS Apple M"
+    },
+    "alert": {
+      "ios": "iOSバージョンのダウンロードを開始！",
+      "android": "Androidバージョンのダウンロードを開始！",
+      "windows": {
+        "x86": "Windows x86バージョンのダウンロードを開始！",
+        "x64": "Windows x64バージョンのダウンロードを開始！"
+      },
+      "macos": {
+        "intel": "MacOS Intelバージョンのダウンロードを開始！",
+        "appleM": "MacOS Apple Mバージョンのダウンロードを開始！"
+      }
+    }
+  },
+  "jobs": {
+    "title": "求人",
+    "sectionTitle": "求人",
+    "requirements": "要件：",
+    "apply": "応募",
+    "modalTitle": "ポジションへの応募： ",
+    "form": {
+      "name": "名前",
+      "email": "メール",
+      "phone": "電話",
+      "telegram": "@Telegram",
+      "resume": "履歴書リンク"
+    },
+    "errors": {
+      "nameRequired": "名前を入力",
+      "emailRequired": "メールを入力",
+      "emailInvalid": "無効なメール",
+      "phoneRequired": "電話番号を入力",
+      "telegramRequired": "Telegramを入力",
+      "resumeRequired": "履歴書リンクを提供"
+    },
+    "applicationSent": "応募が送信されました！ 🚀",
+    "submit": "送信",
+    "vacancies": [
+      {
+        "title": "フロントエンド開発者 (React/TypeScript)",
+        "description": "Nebulaインターフェースの作業：アニメーション、レスポンシブ、API統合。",
+        "requirements": [
+          "ReactとTypeScriptの経験",
+          "TailwindCSSまたは類似の知識",
+          "REST APIの経験"
+        ]
+      },
+      {
+        "title": "バックエンド開発者 (Node.js)",
+        "description": "放送、購読、ユーザー分析のためのAPI設計。",
+        "requirements": [
+          "Node.js、Expressの経験",
+          "データベース（PostgreSQL、MongoDB）の知識",
+          "WebSocketsの経験"
+        ]
+      },
+      {
+        "title": "ML/AIエンジニア",
+        "description": "試合推奨、ゲーム分析、パーソナライズのためのニューラルネットワーク。",
+        "requirements": [
+          "Python (PyTorch/TensorFlow)の経験",
+          "データ処理スキル",
+          "スポーツ分析の理解はプラス"
+        ]
+      },
+      {
+        "title": "モバイル開発者 (React Native)",
+        "description": "iOSとAndroid向けクロスプラットフォームモバイルアプリの開発、ストリーミングと通知に焦点。",
+        "requirements": [
+          "React NativeとExpoの経験",
+          "ネイティブモジュールの知識",
+          "プッシュ通知の経験"
+        ]
+      },
+      {
+        "title": "データサイエンティスト (スポーツ分析)",
+        "description": "試合データの分析、予測分析、推奨のためのAIモデルの改善。",
+        "requirements": [
+          "Python、Pandas、Scikit-learnの経験",
+          "SQLとビッグデータツールの知識",
+          "スポーツと統計への興味"
+        ]
+      },
+      {
+        "title": "DevOpsエンジニア",
+        "description": "スケーラビリティの確保、ストリーミングサービスのCI/CD、パフォーマンス監視。",
+        "requirements": [
+          "Docker、Kubernetesの経験",
+          "AWSまたは類似クラウドの知識",
+          "JenkinsまたはGitHub Actionsでの自動化"
+        ]
+      },
+      {
+        "title": "UI/UXデザイナー",
+        "description": "モバイルとウェブアプリのインターフェース設計、スポーツコンテンツでのユーザーエクスペリエンスを考慮。",
+        "requirements": [
+          "Figma、Adobe XDの経験",
+          "モバイルアプリのUX原則の知識",
+          "実際のプロジェクトのポートフォリオ"
+        ]
+      },
+      {
+        "title": "コミュニティマネージャー",
+        "description": "ユーザーコミュニティの開発、チャットのモデレーション、イベントの組織化、ソーシャルメディアコンテンツ。",
+        "requirements": [
+          "Discord、Telegramの経験",
+          "SMMとコンテンツマーケティングの知識",
+          "スポーツとeスポーツへの興味"
+        ]
+      },
+      {
+        "title": "HRスペシャリスト",
+        "description": "ITスタートアップ向け人材の募集と雇用：開発者、デザイナー、AIとスポーツスペシャリスト。",
+        "requirements": [
+          "IT募集の経験 (2+年)",
+          "ATSツールとLinkedInの知識",
+          "技術スタック (React、Node.js、AI) の理解"
+        ]
+      }
+    ]
+  },
+  "social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "linkedin": "LinkedIn",
+    "vk": "VK",
+    "telegram": "Telegram",
+    "odnoklassniki": "Odnoklassniki",
+    "whatsapp": "WhatsApp",
+    "xing": "XING",
+    "line": "LINE",
+    "youtube": "YouTube",
+    "kakao": "Kakao",
+    "naver": "Naver",
+    "snapchat": "Snapchat",
+    "wechat": "WeChat",
+    "weibo": "Weibo",
+    "douyin": "Douyin",
+    "bilibili": "Bilibili"
+  }
+, "profile": {
+  "title": "あなたのプロフィール",
+  "userInfo": "ユーザー情報",
+  "emailLabel": "メール:",
+  "currentSub": "現在のサブスクリプション:",
+  "noSub": "サブスクリプションなし",
+  "additionalInfo": "追加情報",
+  "namePlaceholder": "あなたの名前",
+  "phonePlaceholder": "電話番号",
+  "bioPlaceholder": "自分について教えてください",
+  "saveInfo": "情報を保存",
+  "saved": "情報が保存されました!",
+  "error": "エラー",
+  "success": "サブスクリプションが成功しました! ステータスを確認するためにページを更新してください。",
+  "paymentCancelled": "支払いがキャンセルされました",
+  "chooseSub": "サブスクリプションを選択",
+  "active": "アクティブ",
+  "purchase": "サブスクライブ",
+  "processing": "処理中...",
+  "activeSub": "アクティブなサブスクリプション",
+  "logout": "アカウントからログアウト"
+},
+"subscriptions": {
+  "basic": {
+    "name": "Basic",
+    "description": "基本機能への初期アクセス",
+    "features": [
+      "基本チャット",
+      "標準サポート",
+      "制限付きストリーム"
+    ]
+  },
+  "pro": {
+    "name": "Pro",
+    "description": "アクティブユーザー向け拡張機能",
+    "features": [
+      "拡張チャット",
+      "優先サポート",
+      "無制限ストリーム",
+      "アナリティクス"
+    ]
+  },
+  "premium": {
+    "name": "Premium",
+    "description": "独占機能付きプレミアムアクセス",
+    "features": [
+      "VIPチャット",
+      "24/7サポート",
+      "独占コンテンツ",
+      "高度なアナリティクス"
+    ]
+  },
+  "elite": {
+    "name": "Elite",
+    "description": "プロフェッショナル向けエリートレベル",
+    "features": [
+      "パーソナルチャット",
+      "エキスパートサポート",
+      "プライベートストリーム",
+      "カスタムレポート"
+    ]
+  },
+  "vip": {
+    "name": "VIP",
+    "description": "最大特権付きVIPステータス",
+    "features": [
+      "独占VIPチャット",
+      "パーソナルマネージャー",
+      "すべてのストリーム",
+      "プレミアムアナリティクス"
+    ]
+  },
+  "ultimate": {
+    "name": "Ultimate",
+    "description": "すべてへのフルアクセス",
+    "features": [
+      "フルアクセス",
+      "パーソナライズドサービス",
+      "すべての機能",
+      "すべてへの優先アクセス"
+    ]
+  }
+}
+}
