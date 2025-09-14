@@ -41,7 +41,6 @@
     "messagePlaceholder": "ההודעה שלך",
     "submit": "שלח"
   },
-  "jobs": "משרות",
   "welcome": "ברוכים הבאים",
   "welcome_to_nebula": "ברוכים הבאים ל-Nebula",
   "streams": "הזרמות",
@@ -183,88 +182,154 @@
     "weibo": "ויבו",
     "douyin": "דוייין",
     "bilibili": "ביליבילי"
+  },
+  "profile": {
+    "title": "הפרופיל שלך",
+    "userInfo": "מידע משתמש",
+    "emailLabel": "אימייל:",
+    "currentSub": "מנוי נוכחי:",
+    "noSub": "אין מנוי",
+    "additionalInfo": "מידע נוסף",
+    "namePlaceholder": "שמך",
+    "phonePlaceholder": "מספר טלפון",
+    "bioPlaceholder": "ספר על עצמך",
+    "saveInfo": "שמור מידע",
+    "saved": "המידע נשמר!",
+    "error": "שגיאה",
+    "success": "המנוי הושלם בהצלחה! רענן את הדף כדי לבדוק את הסטטוס.",
+    "paymentCancelled": "התשלום בוטל",
+    "chooseSub": "בחר מנוי",
+    "active": "פעיל",
+    "purchase": "הירשם",
+    "processing": "מעבד...",
+    "activeSub": "מנוי פעיל",
+    "logout": "התנתק מהחשבון"
+  },
+  "subscriptions": {
+    "basic": {
+      "name": "Basic",
+      "description": "גישה ראשונית לפיצ'רים בסיסיים",
+      "features": [
+        "צ'אט בסיסי",
+        "תמיכה סטנדרטית",
+        "סטרים מוגבלים"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "description": "יכולות מורחבות למשתמשים פעילים",
+      "features": [
+        "צ'אט מורחב",
+        "תמיכה בעדיפות",
+        "סטרים ללא הגבלה",
+        "אנליטיקה"
+      ]
+    },
+    "premium": {
+      "name": "Premium",
+      "description": "גישה פרימיום עם פיצ'רים בלעדיים",
+      "features": [
+        "צ'אט VIP",
+        "תמיכה 24/7",
+        "תוכן בלעדי",
+        "אנליטיקה מתקדמת"
+      ]
+    },
+    "elite": {
+      "name": "Elite",
+      "description": "רמה אליטה למקצוענים",
+      "features": [
+        "צ'אט אישי",
+        "תמיכה מומחית",
+        "סטרים פרטיים",
+        "דוחות מותאמים"
+      ]
+    },
+    "vip": {
+      "name": "VIP",
+      "description": "סטטוס VIP עם הרשאות מקסימליות",
+      "features": [
+        "צ'אט VIP בלעדי",
+        "מנהל אישי",
+        "כל הסטרים",
+        "אנליטיקה פרימיום"
+      ]
+    },
+    "ultimate": {
+      "name": "Ultimate",
+      "description": "גישה מלאה להכל",
+      "features": [
+        "גישה מלאה",
+        "שירותים מותאמים",
+        "כל הפיצ'רים",
+        "גישה בעדיפות להכל"
+      ]
+    }
+  },
+  "jobs": {
+    "title": "משרות",
+    "sectionTitle": "הצטרף לצוות שלנו ב-Nebula",
+    "requirements": "דרישות",
+    "apply": "הגש מועמדות",
+    "modalTitle": "הגש מועמדות ל-",
+    "form": {
+      "name": "שם מלא",
+      "email": "אימייל",
+      "phone": "מספר טלפון",
+      "telegram": "שם משתמש בטלגרם",
+      "resume": "קישור לקורות חיים"
+    },
+    "submit": "שלח מועמדות",
+    "applicationSent": "המועמדות נשלחה בהצלחה!",
+    "errors": {
+      "nameRequired": "שם חובה",
+      "emailRequired": "אימייל חובה",
+      "emailInvalid": "אימייל לא תקין",
+      "phoneRequired": "מספר טלפון חובה",
+      "telegramRequired": "שם משתמש בטלגרם חובה",
+      "resumeRequired": "קישור לקורות חיים חובה"
+    },
+    "vacancies": [
+      {
+        "title": "מפתח Frontend",
+        "description": "אחראי על פיתוח ממשקי משתמש חדשניים באמצעות React ו-TypeScript.",
+        "requirements": [
+          "ניסיון ב-React ו-TypeScript",
+          "הבנה עמוקה של HTML/CSS",
+          "ניסיון עם Framer Motion",
+          "יכולת עבודה בצוות"
+        ]
+      },
+      {
+        "title": "מפתח Backend",
+        "description": "פיתוח ושיפור השרתים וה-API של Nebula עם Node.js ו-Express.",
+        "requirements": [
+          "ניסיון ב-Node.js ו-Express",
+          "הבנה במסדי נתונים (MongoDB)",
+          "ניסיון עם Socket.IO",
+          "אבטחת מידע בסיסית"
+        ]
+      },
+      {
+        "title": "מעצב UI/UX",
+        "description": "עיצוב ממשקים אינטואיטיביים ומעוצבים עבור אפליקציית Nebula.",
+        "requirements": [
+          "ניסיון ב-Figma/Sketch",
+          "הבנה ב-RTL לעברית",
+          "יצירתיות ועיצוב מודרני",
+          "עבודה עם צוותי פיתוח"
+        ]
+      },
+      {
+        "title": "מנהל תוכן",
+        "description": "ניהול תוכן הסטרימים והקהילה, כולל תרגומים לעברית.",
+        "requirements": [
+          "שליטה בעברית ואנגלית",
+          "ניסיון בניהול קהילה",
+          "הבנה בספורט וסטרימים",
+          "כישורי כתיבה"
+        ]
+      }
+    ]
   }
-, "profile": {
-  "title": "הפרופיל שלך",
-  "userInfo": "מידע משתמש",
-  "emailLabel": "אימייל:",
-  "currentSub": "מנוי נוכחי:",
-  "noSub": "אין מנוי",
-  "additionalInfo": "מידע נוסף",
-  "namePlaceholder": "שמך",
-  "phonePlaceholder": "מספר טלפון",
-  "bioPlaceholder": "ספר על עצמך",
-  "saveInfo": "שמור מידע",
-  "saved": "המידע נשמר!",
-  "error": "שגיאה",
-  "success": "המנוי הושלם בהצלחה! רענן את הדף כדי לבדוק את הסטטוס.",
-  "paymentCancelled": "התשלום בוטל",
-  "chooseSub": "בחר מנוי",
-  "active": "פעיל",
-  "purchase": "הירשם",
-  "processing": "מעבד...",
-  "activeSub": "מנוי פעיל",
-  "logout": "התנתק מהחשבון"
-},
-"subscriptions": {
-  "basic": {
-    "name": "Basic",
-    "description": "גישה ראשונית לפיצ'רים בסיסיים",
-    "features": [
-      "צ'אט בסיסי",
-      "תמיכה סטנדרטית",
-      "סטרים מוגבלים"
-    ]
-  },
-  "pro": {
-    "name": "Pro",
-    "description": "יכולות מורחבות למשתמשים פעילים",
-    "features": [
-      "צ'אט מורחב",
-      "תמיכה בעדיפות",
-      "סטרים ללא הגבלה",
-      "אנליטיקה"
-    ]
-  },
-  "premium": {
-    "name": "Premium",
-    "description": "גישה פרימיום עם פיצ'רים בלעדיים",
-    "features": [
-      "צ'אט VIP",
-      "תמיכה 24/7",
-      "תוכן בלעדי",
-      "אנליטיקה מתקדמת"
-    ]
-  },
-  "elite": {
-    "name": "Elite",
-    "description": "רמה אליטה למקצוענים",
-    "features": [
-      "צ'אט אישי",
-      "תמיכה מומחית",
-      "סטרים פרטיים",
-      "דוחות מותאמים"
-    ]
-  },
-  "vip": {
-    "name": "VIP",
-    "description": "סטטוס VIP עם הרשאות מקסימליות",
-    "features": [
-      "צ'אט VIP בלעדי",
-      "מנהל אישי",
-      "כל הסטרים",
-      "אנליטיקה פרימיום"
-    ]
-  },
-  "ultimate": {
-    "name": "Ultimate",
-    "description": "גישה מלאה להכל",
-    "features": [
-      "גישה מלאה",
-      "שירותים מותאמים",
-      "כל הפיצ'רים",
-      "גישה בעדיפות להכל"
-    ]
-  }
-}
 }

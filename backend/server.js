@@ -17,20 +17,10 @@ const YandexStrategy = require('passport-yandex').Strategy;
 
 const axios = require('axios');
 
-const mongoose = require("mongoose");
 const http = require("http");
 const { Server } = require("socket.io");
 
 // ---------- CONFIG ----------
-const MONGO_URI =
-  process.env.MONGO_URI ||
-  "mongodb+srv://tfotlabs_db_user:<Ferger123456>@nebula.m3rudui.mongodb.net/?retryWrites=true&w=majority&appName=Nebula";
-
-mongoose
-  .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("✅ MongoDB connected"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
-
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -38,27 +28,61 @@ const io = new Server(server, {
 });
 const PORT = process.env.PORT || 5000;
 
-// ---------- SCHEMAS ----------
-const ChatMessageSchema = new mongoose.Schema({
-  from: { type: String, default: "user" },
-  text: String,
-  at: { type: Date, default: Date.now },
-  chatId: String,
-  ai: Boolean,
-  type: { type: String, default: "text" },
-  url: String,
-});
-const ChatMessage = mongoose.model("ChatMessage", ChatMessageSchema);
+const DATA_DIR = path.join(__dirname, "data");
+const CHATS_FILE = path.join(DATA_DIR, "chats.json");
+const MESSAGES_FILE = path.join(DATA_DIR, "chat-messages.json");
 
-const ChatSchema = new mongoose.Schema({
-  chatId: { type: String, required: true },
-  userId: String,
-  status: { type: String, enum: ["open", "closed"], default: "open" },
-  createdAt: { type: Date, default: Date.now },
-  closedAt: Date,
-});
-const Chat = mongoose.model("Chat", ChatSchema);
+if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+if (!fs.existsSync(CHATS_FILE)) fs.writeFileSync(CHATS_FILE, "[]");
+if (!fs.existsSync(MESSAGES_FILE)) fs.writeFileSync(MESSAGES_FILE, "[]");
 
+const readJSON = (file) => JSON.parse(fs.readFileSync(file, "utf-8"));
+const writeJSON = (file, data) => fs.writeFileSync(file, JSON.stringify(data, null, 2));
+
+let chatsCache = readJSON(CHATS_FILE);
+let messagesCache = readJSON(MESSAGES_FILE);
+
+// ---------- CHAT FUNCTIONS ----------
+const saveChats = () => {
+  writeJSON(CHATS_FILE, chatsCache);
+};
+const saveMessages = () => {
+  writeJSON(MESSAGES_FILE, messagesCache);
+};
+
+const createChat = (chatData) => {
+  const newChat = { ...chatData, id: Date.now().toString(), createdAt: new Date().toISOString(), status: "open" };
+  chatsCache.push(newChat);
+  saveChats();
+  return newChat;
+};
+
+const findChat = (chatId) => chatsCache.find(c => c.chatId === chatId);
+const updateChat = (chatId, updates) => {
+  const index = chatsCache.findIndex(c => c.chatId === chatId);
+  if (index !== -1) {
+    chatsCache[index] = { ...chatsCache[index], ...updates };
+    saveChats();
+    return chatsCache[index];
+  }
+  return null;
+};
+
+const deleteChat = (chatId) => {
+  chatsCache = chatsCache.filter(c => c.chatId !== chatId);
+  saveChats();
+};
+
+const createMessage = (msgData) => {
+  const newMsg = { ...msgData, id: Date.now().toString(), at: new Date().toISOString() };
+  messagesCache.push(newMsg);
+  saveMessages();
+  return newMsg;
+};
+
+const findMessages = (chatId) => messagesCache.filter(m => m.chatId === chatId).sort((a, b) => new Date(a.at) - new Date(b.at));
+
+/* Temporarily commented out due to MongoDB connection issues
 const UserSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -128,88 +152,91 @@ Subscription.findOne().then((doc) => {
     Subscription.insertMany(tariffs);
   }
 });
+*/
 
+/* Temporarily commented out due to MongoDB connection issues
 // Passport strategies
 passport.serializeUser((user, done) => done(null, user.id));
 passport.deserializeUser(async (id, done) => {
-  try {
-    const user = await User.findById(id);
-    done(null, user);
-  } catch (err) {
-    done(err);
-  }
+ try {
+   const user = await User.findById(id);
+   done(null, user);
+ } catch (err) {
+   done(err);
+ }
 });
 
 passport.use(new GoogleStrategy({
-  clientID: process.env.GOOGLE_CLIENT_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "/auth/google/callback"
+ clientID: process.env.GOOGLE_CLIENT_ID,
+ clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+ callbackURL: "/auth/google/callback"
 }, async (accessToken, refreshToken, profile, done) => {
-  try {
-    let user = await User.findOne({ email: profile.emails[0].value });
-    if (!user) {
-      user = new User({ email: profile.emails[0].value });
-      await user.save();
-    }
-    return done(null, user);
-  } catch (err) {
-    return done(err);
-  }
+ try {
+   let user = await User.findOne({ email: profile.emails[0].value });
+   if (!user) {
+     user = new User({ email: profile.emails[0].value });
+     await user.save();
+   }
+   return done(null, user);
+ } catch (err) {
+   return done(err);
+ }
 }));
 
 passport.use(new AppleStrategy({
-  clientID: process.env.APPLE_CLIENT_ID,
-  teamID: process.env.APPLE_TEAM_ID,
-  clientSecret: process.env.APPLE_CLIENT_SECRET,
-  callbackURL: "/auth/apple/callback",
-  scope: 'email'
+ clientID: process.env.APPLE_CLIENT_ID,
+ teamID: process.env.APPLE_TEAM_ID,
+ clientSecret: process.env.APPLE_CLIENT_SECRET,
+ callbackURL: "/auth/apple/callback",
+ scope: 'email'
 }, async (accessToken, refreshToken, id, profile, done) => {
-  try {
-    let user = await User.findOne({ email: profile.email });
-    if (!user) {
-      user = new User({ email: profile.email });
-      await user.save();
-    }
-    return done(null, user);
-  } catch (err) {
-    return done(err);
-  }
+ try {
+   let user = await User.findOne({ email: profile.email });
+   if (!user) {
+     user = new User({ email: profile.email });
+     await user.save();
+   }
+   return done(null, user);
+ } catch (err) {
+   return done(err);
+ }
 }));
 
 passport.use(new VKontakteStrategy({
-  clientID: process.env.VK_CLIENT_ID,
-  clientSecret: process.env.VK_CLIENT_SECRET,
-  callbackURL: "/auth/vk/callback",
-  profileFields: ['email']
+ clientID: process.env.VK_CLIENT_ID,
+ clientSecret: process.env.VK_CLIENT_SECRET,
+ callbackURL: "/auth/vk/callback",
+ profileFields: ['email']
 }, async (accessToken, refreshToken, params, profile, done) => {
-  try {
-    let user = await User.findOne({ email: profile.emails ? profile.emails[0].value : params.email });
-    if (!user) {
-      user = new User({ email: profile.emails ? profile.emails[0].value : params.email });
-      await user.save();
-    }
-    return done(null, user);
-  } catch (err) {
-    return done(err);
-  }
+ try {
+   let user = await User.findOne({ email: profile.emails ? profile.emails[0].value : params.email });
+   if (!user) {
+     user = new User({ email: profile.emails ? profile.emails[0].value : params.email });
+     await user.save();
+   }
+   return done(null, user);
+ } catch (err) {
+   return done(err);
+ }
 }));
 
 passport.use(new YandexStrategy({
-  clientID: process.env.YANDEX_CLIENT_ID,
-  clientSecret: process.env.YANDEX_CLIENT_SECRET,
-  callbackURL: "/auth/yandex/callback"
+ clientID: process.env.YANDEX_CLIENT_ID,
+ clientSecret: process.env.YANDEX_CLIENT_SECRET,
+ callbackURL: "/auth/yandex/callback"
 }, async (accessToken, refreshToken, profile, done) => {
-  try {
-    let user = await User.findOne({ email: profile.emails[0].value });
-    if (!user) {
-      user = new User({ email: profile.emails[0].value });
-      await user.save();
-    }
-    return done(null, user);
-  } catch (err) {
-    return done(err);
-  }
+ try {
+   let user = await User.findOne({ email: profile.emails[0].value });
+   if (!user) {
+     user = new User({ email: profile.emails[0].value });
+     await user.save();
+   }
+   return done(null, user);
+ } catch (err) {
+   return done(err);
+ }
 }));
+*/
 
 // ---------- SOCKET.IO ----------
 io.on("connection", (socket) => {
@@ -222,15 +249,15 @@ io.on("connection", (socket) => {
   });
 
   // пользователь/оператор подключается к чату
-  socket.on("chat:join", async (chatId) => {
+  socket.on("chat:join", (chatId) => {
     try {
       socket.join(`chat:${chatId}`);
-      const msgs = await ChatMessage.find({ chatId }).sort({ at: 1 }).limit(500);
+      const msgs = findMessages(chatId);
       socket.emit("chat:history", msgs);
 
       // Если история пуста, отправляем приветствие ИИ
       if (msgs.length === 0) {
-        const welcomeMsg = await ChatMessage.create({
+        const welcomeMsg = createMessage({
           from: "ai",
           text: "Привет! Я ИИ-помощник Nebula. Как могу помочь?\n\nВозможные темы:\n• Подписка и оплата\n• Скачивание приложения\n• Вакансии\n• Проблемы со стримами\n• Общие вопросы\n\nОпишите вашу проблему!",
           chatId: chatId,
@@ -245,18 +272,18 @@ io.on("connection", (socket) => {
   });
 
   // новое сообщение
-  socket.on("chat:message", async (msg) => {
+  socket.on("chat:message", (msg) => {
     try {
       if (!msg || !msg.text) return;
  
-      let chat = await Chat.findOne({ chatId: msg.chatId });
+      let chat = findChat(msg.chatId);
       if (!chat) {
-        chat = await Chat.create({ chatId: msg.chatId });
+        chat = createChat({ chatId: msg.chatId });
       }
- 
+
       const wasClosed = chat.status === "closed";
- 
-      const item = await ChatMessage.create({
+
+      const item = createMessage({
         from: msg.from || "user",
         text: msg.text,
         chatId: msg.chatId,
@@ -265,22 +292,21 @@ io.on("connection", (socket) => {
         type: msg.type || "text",
         url: msg.url || null,
       });
- 
+
       // Если чат был закрыт, переоткрываем его и отправляем AI-приветствие
       if (wasClosed) {
-        chat.status = "open";
-        await chat.save();
- 
-        const aiWelcomeMsg = await ChatMessage.create({
+        updateChat(msg.chatId, { status: "open" });
+
+        const aiWelcomeMsg = createMessage({
           from: "ai",
           text: "Привет! Диалог был закрыт оператором, но я готов помочь снова. Что вас беспокоит?\n\nВозможные темы:\n• Подписка и оплата (доступно в РФ, скоро международный запуск)\n• Скачивание приложения\n• Вакансии и резюме\n• Проблемы со стримами\n• Общие вопросы о Nebula\n\nОпишите проблему подробнее!",
           chatId: msg.chatId,
           ai: true,
         });
- 
+
         io.to(`chat:${msg.chatId}`).emit("chat:message", aiWelcomeMsg);
       }
- 
+
       // отправляем только в комнату чата (юзер + оператор, подключённые к этому чату)
       io.to(`chat:${msg.chatId}`).emit("chat:message", item);
 
@@ -304,7 +330,7 @@ io.on("connection", (socket) => {
             at: new Date().toISOString(),
             ai: true,
           };
-          const item = await ChatMessage.create(linkMsg);
+          const item = createMessage(linkMsg);
           io.to(`chat:${msg.chatId}`).emit("chat:message", item);
           console.log(`[${msg.chatId}] AI: Link to download`);
           return;
@@ -320,7 +346,7 @@ io.on("connection", (socket) => {
             at: new Date().toISOString(),
             ai: true,
           };
-          const item = await ChatMessage.create(linkMsg);
+          const item = createMessage(linkMsg);
           io.to(`chat:${msg.chatId}`).emit("chat:message", item);
           console.log(`[${msg.chatId}] AI: Link to jobs`);
           return;
@@ -338,7 +364,7 @@ io.on("connection", (socket) => {
             at: new Date().toISOString(),
             ai: true,
           };
-          const item = await ChatMessage.create(linkMsg);
+          const item = createMessage(linkMsg);
           io.to(`chat:${msg.chatId}`).emit("chat:message", item);
           console.log(`[${msg.chatId}] AI: Link to about`);
           return;
@@ -352,7 +378,7 @@ io.on("connection", (socket) => {
             at: new Date().toISOString(),
             ai: true,
           };
-          const item = await ChatMessage.create(linkMsg);
+          const item = createMessage(linkMsg);
           io.to(`chat:${msg.chatId}`).emit("chat:message", item);
           console.log(`[${msg.chatId}] AI: Link to contact`);
           return;
@@ -366,13 +392,13 @@ io.on("connection", (socket) => {
             at: new Date().toISOString(),
             ai: true,
           };
-          const item = await ChatMessage.create(linkMsg);
+          const item = createMessage(linkMsg);
           io.to(`chat:${msg.chatId}`).emit("chat:message", item);
           console.log(`[${msg.chatId}] AI: Link to home`);
           return;
         }
 
-        const aiMsg = await ChatMessage.create({
+        const aiMsg = createMessage({
           from: "ai",
           text: aiResponse,
           chatId: msg.chatId,
@@ -408,17 +434,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // ---------- FILE STORAGE ----------
-const DATA_DIR = path.join(__dirname, "data");
 const JOBS_FILE = path.join(DATA_DIR, "jobs.json");
 const SUPPORT_FILE = path.join(DATA_DIR, "support.json");
 
-if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 if (!fs.existsSync(JOBS_FILE)) fs.writeFileSync(JOBS_FILE, "[]");
 if (!fs.existsSync(SUPPORT_FILE)) fs.writeFileSync(SUPPORT_FILE, "[]");
-
-const readJSON = (file) => JSON.parse(fs.readFileSync(file, "utf-8"));
-const writeJSON = (file, data) =>
-  fs.writeFileSync(file, JSON.stringify(data, null, 2));
 
 // ---------- ROUTES ----------
 // health
@@ -428,30 +448,25 @@ app.get("/api/health", (_req, res) =>
 );
 
 // список чатов
-app.get("/api/chats", async (_req, res) => {
-  const list = await Chat.find().sort({ createdAt: -1 }).limit(200);
-  res.json(list);
+app.get("/api/chats", (req, res) => {
+ const list = chatsCache.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 200);
+ res.json(list);
 });
 
 // сообщения чата
-app.get("/api/chats/:chatId/messages", async (req, res) => {
-  const msgs = await ChatMessage.find({ chatId: req.params.chatId })
-    .sort({ at: 1 })
-    .limit(1000);
-  res.json(msgs);
+app.get("/api/chats/:chatId/messages", (req, res) => {
+ const msgs = findMessages(req.params.chatId).slice(0, 1000);
+ res.json(msgs);
 });
 
 // закрыть чат
-app.post("/api/chats/:chatId/close", async (req, res) => {
-  const chat = await Chat.findOne({ chatId: req.params.chatId });
-  if (!chat) return res.status(404).json({ message: "Chat not found" });
-  chat.status = "closed";
-  const chatId = req.params.chatId;
-  io.to(`chat:${chatId}`).emit("chat:closed", { chatId });
-  io.to("operators").emit("chat:closed", { chatId });
-  chat.closedAt = new Date();
-  await chat.save();
-  res.json({ message: "Closed" });
+app.post("/api/chats/:chatId/close", (req, res) => {
+ const chat = findChat(req.params.chatId);
+ if (!chat) return res.status(404).json({ message: "Chat not found" });
+ updateChat(req.params.chatId, { status: "closed", closedAt: new Date().toISOString() });
+ io.to(`chat:${req.params.chatId}`).emit("chat:closed", { chatId: req.params.chatId });
+ io.to("operators").emit("chat:closed", { chatId: req.params.chatId });
+ res.json({ message: "Closed" });
 });
 
 // вакансии
@@ -517,21 +532,23 @@ app.get("/api/payment-config/:country", (req, res) => {
   res.json(config);
 });
 
+/* Temporarily commented out due to MongoDB connection issues
 // Update user language
 app.post("/api/user/language", authenticateToken, async (req, res) => {
-  try {
-    const { language } = req.body;
-    if (!language) return res.status(400).json({ message: 'Language required' });
-    const user = await User.findById(req.user.id);
-    if (!user) return res.status(404).json({ message: 'User not found' });
-    user.language = language;
-    await user.save();
-    res.json({ message: 'Language updated', user: { language: user.language } });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server error' });
-  }
+ try {
+   const { language } = req.body;
+   if (!language) return res.status(400).json({ message: 'Language required' });
+   const user = await User.findById(req.user.id);
+   if (!user) return res.status(404).json({ message: 'User not found' });
+   user.language = language;
+   await user.save();
+   res.json({ message: 'Language updated', user: { language: user.language } });
+ } catch (err) {
+   console.error(err);
+   res.status(500).json({ message: 'Server error' });
+ }
 });
+*/
 
 // Translation endpoint for AdminChat
 app.post('/api/translate', async (req, res) => {
@@ -599,119 +616,122 @@ app.get("/api/i18n/:lang", (req, res) => {
 // For existing users without language field (Mongoose auto-adds, but to set default):
 // User.updateMany({}, { $setOnInsert: { language: 'en' } }); // Run once if needed
 
+/* Temporarily commented out due to MongoDB connection issues
 // Auth routes
 app.post("/api/auth/register", async (req, res) => {
-  try {
-    const { email, password, user_country, language, payment_method, currency } = req.body;
-    if (!email || !password) {
-      return res.status(400).json({ message: "Email и пароль обязательны" });
-    }
+ try {
+   const { email, password, user_country, language, payment_method, currency } = req.body;
+   if (!email || !password) {
+     return res.status(400).json({ message: "Email и пароль обязательны" });
+   }
 
-    let config;
-    if (!user_country) {
-      // Auto detect
-      let ip = req.ip || req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-      if (ip === '::1' || ip === '127.0.0.1') ip = '8.8.8.8';
-      const geoResponse = await axios.get(`https://ipapi.co/${ip}/json/`);
-      const country = geoResponse.data.country_code;
-      config = getCountryConfig(country);
-    } else {
-      config = getCountryConfig(user_country);
-    }
+   let config;
+   if (!user_country) {
+     // Auto detect
+     let ip = req.ip || req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+     if (ip === '::1' || ip === '127.0.0.1') ip = '8.8.8.8';
+     const geoResponse = await axios.get(`https://ipapi.co/${ip}/json/`);
+     const country = geoResponse.data.country_code;
+     config = getCountryConfig(country);
+   } else {
+     config = getCountryConfig(user_country);
+   }
 
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: "Пользователь уже существует" });
-    }
+   const existingUser = await User.findOne({ email });
+   if (existingUser) {
+     return res.status(400).json({ message: "Пользователь уже существует" });
+   }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = new User({
-      email,
-      password: hashedPassword,
-      user_country: config.country,
-      language: language || config.language,
-      payment_method: payment_method || config.payment_method,
-      currency: currency || config.currency
-    });
-    await user.save();
+   const hashedPassword = await bcrypt.hash(password, 10);
+   const user = new User({
+     email,
+     password: hashedPassword,
+     user_country: config.country,
+     language: language || config.language,
+     payment_method: payment_method || config.payment_method,
+     currency: currency || config.currency
+   });
+   await user.save();
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || 'fallback_secret', { expiresIn: '1h' });
-    res.status(201).json({
-      token,
-      user: {
-        id: user._id,
-        email,
-        user_country: user.user_country,
-        language: user.language,
-        payment_method: user.payment_method,
-        currency: user.currency
-      }
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Ошибка сервера" });
-  }
+   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || 'fallback_secret', { expiresIn: '1h' });
+   res.status(201).json({
+     token,
+     user: {
+       id: user._id,
+       email,
+       user_country: user.user_country,
+       language: user.language,
+       payment_method: user.payment_method,
+       currency: user.currency
+     }
+   });
+ } catch (err) {
+   console.error(err);
+   res.status(500).json({ message: "Ошибка сервера" });
+ }
 });
 
 app.post("/api/auth/login", async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    if (!email || !password) {
-      return res.status(400).json({ message: "Email и пароль обязательны" });
-    }
+ try {
+   const { email, password } = req.body;
+   if (!email || !password) {
+     return res.status(400).json({ message: "Email и пароль обязательны" });
+   }
 
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: "Неверные данные" });
-    }
+   const user = await User.findOne({ email });
+   if (!user) {
+     return res.status(400).json({ message: "Неверные данные" });
+   }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ message: "Неверные данные" });
-    }
+   const isMatch = await bcrypt.compare(password, user.password);
+   if (!isMatch) {
+     return res.status(400).json({ message: "Неверные данные" });
+   }
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || 'fallback_secret', { expiresIn: '1h' });
-    res.json({ token, user: { id: user._id, email } });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Ошибка сервера" });
-  }
+   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || 'fallback_secret', { expiresIn: '1h' });
+   res.json({ token, user: { id: user._id, email } });
+ } catch (err) {
+   console.error(err);
+   res.status(500).json({ message: "Ошибка сервера" });
+ }
 });
 
 // OAuth routes
 app.get('/auth/google', passport.authenticate('google', { scope: ['email'] }));
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
-  const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET || 'fallback_secret', { expiresIn: '1h' });
-  res.redirect(`http://localhost:3000/auth/success?token=${token}&email=${req.user.email}`);
+ const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET || 'fallback_secret', { expiresIn: '1h' });
+ res.redirect(`http://localhost:3000/auth/success?token=${token}&email=${req.user.email}`);
 });
 
 app.get('/auth/apple', passport.authenticate('apple', { scope: 'email' }));
 app.get('/auth/apple/callback', passport.authenticate('apple', { failureRedirect: '/login' }), (req, res) => {
-  const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET || 'fallback_secret', { expiresIn: '1h' });
-  res.redirect(`http://localhost:3000/auth/success?token=${token}&email=${req.user.email}`);
+ const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET || 'fallback_secret', { expiresIn: '1h' });
+ res.redirect(`http://localhost:3000/auth/success?token=${token}&email=${req.user.email}`);
 });
 
 app.get('/auth/vk', passport.authenticate('vkontakte', { scope: ['email'] }));
 app.get('/auth/vk/callback', passport.authenticate('vkontakte', { failureRedirect: '/login' }), (req, res) => {
-  const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET || 'fallback_secret', { expiresIn: '1h' });
-  res.redirect(`http://localhost:3000/auth/success?token=${token}&email=${req.user.email}`);
+ const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET || 'fallback_secret', { expiresIn: '1h' });
+ res.redirect(`http://localhost:3000/auth/success?token=${token}&email=${req.user.email}`);
 });
 
 app.get('/auth/yandex', passport.authenticate('yandex', { scope: ['login:email'] }));
 app.get('/auth/yandex/callback', passport.authenticate('yandex', { failureRedirect: '/login' }), (req, res) => {
-  const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET || 'fallback_secret', { expiresIn: '1h' });
-  res.redirect(`http://localhost:3000/auth/success?token=${token}&email=${req.user.email}`);
+ const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET || 'fallback_secret', { expiresIn: '1h' });
+ res.redirect(`http://localhost:3000/auth/success?token=${token}&email=${req.user.email}`);
 });
 
 app.get('/auth/logout', (req, res) => {
-  req.logout((err) => {
-    if (err) return next(err);
-  });
-  req.session.destroy();
-  res.redirect('http://localhost:3000');
+ req.logout((err) => {
+   if (err) return next(err);
+ });
+ req.session.destroy();
+ res.redirect('http://localhost:3000');
 });
+*/
 
 // 404 для API
+/* Temporarily commented out due to MongoDB connection issues
 app.post('/api/create-robokassa-payment', authenticateToken, async (req, res) => {
   try {
     const { subId } = req.body;
@@ -866,6 +886,7 @@ app.get('/payment/result', async (req, res) => {
     res.redirect('http://localhost:3000/profile?cancel=true');
   }
 });
+*/
 
 app.use((req, res, next) => {
   if (req.path.startsWith("/api/")) {
